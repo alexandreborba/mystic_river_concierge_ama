@@ -1,0 +1,6 @@
+[Thu Sep 18 09:40:35.905477 2025] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.65 (Debian) OpenSSL/3.5.1 configured -- resuming normal operations
+[Thu Sep 18 09:40:35.905583 2025] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Thu Sep 18 10:04:45.717637 2025] [mpm_prefork:notice] [pid 1:tid 1] AH00170: caught SIGWINCH, shutting down gracefully
+[Thu Sep 18 10:04:47.406059 2025] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.65 (Debian) OpenSSL/3.5.1 configured -- resuming normal operations
+[Thu Sep 18 10:04:47.406106 2025] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Thu Sep 18 10:06:13.039723 2025] [mpm_prefork:notice] [pid 1:tid 1] AH00170: caught SIGWINCH, shutting down gracefully

@@ -1,0 +1,38 @@
+# version: '3.8'
+services:
+  mystic_river_concierge_ama: # alterar aqui
+
+    environment:
+      PROJECT_NAME: ${PROJECT_NAME} 
+      CONTAINER_NAME: ${CONTAINER_NAME} 
+      CONTAINER_PORT: ${CONTAINER_PORT}
+
+      image: ${CONTAINER_NAME}:latest  
+    build:
+      context: .
+      dockerfile: Dockerfile 
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    container_name: ${CONTAINER_NAME}
+    
+    ports:
+      - "${CONTAINER_PORT}:80" # local
+    
+    volumes:
+      - ${HOST_CODE_PATH}:/var/www/html
+
+      - ./custom.ini:/usr/local/etc/php/conf.d/custom.ini
+      
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    
+    networks:
+      - docker_server_network
+
+    # ativar a linha abaixo para reiniciar o container automaticamente em PRODUÇÃO !!!    
+    restart: ${RESTART} # Reinicia o container a menos que seja parado manualmente
+
+networks:
+  docker_server_network:
+    external: true # Define que a rede já existe externamente

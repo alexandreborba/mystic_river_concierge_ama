@@ -1,0 +1,28 @@
+#datalist_filter input {
+    width: 400px !important; /* ou o valor que desejar */
+    max-width: 100%;
+}
+#datalist_length select {
+    width: 70px !important; /* ou o valor que desejar */
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.grid-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 10px 10px 20px;
+}
+
+.grid-title-left {
+    width: 50%;
+    text-align: left;
+}
+
+.grid-title-right {
+    width: 50%;
+    text-align: right;
+    padding-right:2%;
+}
