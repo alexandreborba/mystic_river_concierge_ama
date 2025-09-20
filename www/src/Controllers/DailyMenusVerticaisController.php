@@ -4,7 +4,7 @@ namespace Src\Controllers;
 
 use Src\Models\SysTokens; // validateToken requires
 use Src\Models\DailyMenusVerticais; // Model DailyMenus
-use Src\Models\Ships; // Model DailyMenus
+use Src\Models\ConciergeShips; // Model DailyMenus
 
 use Firebase\JWT\JWT;
 use Ramsey\Uuid\Uuid;
@@ -12,6 +12,9 @@ use Ramsey\Uuid\Uuid;
 // 2160 x 900 4K
 
 // openweathermap
+
+ini_set("display_errors", 0);
+#error_reporting(E_ALL);
 
 class DailyMenusVerticaisController
 {
@@ -58,12 +61,12 @@ class DailyMenusVerticaisController
     /**
      * Fetch a Daily Menu Vertical by Ship
      */
-    public function getDmvFile($shipCode, $headers)
+    public function getFiles($shipCode, $headers)
     {
         #$this->validateToken($headers);
         $dailyMenuVerticals = (new DailyMenusVerticais())->find("shipCode=:sCode AND dmvStatus=:st AND deleted_at IS NULL","sCode={$shipCode}&st=1")->order("dmvOrder ASC")->fetch(true);
         if (!$dailyMenuVerticals) {
-            $noContent = (new Ships())->find("shipCode=:sCode","sCode={$shipCode}")->fetch();
+            $noContent = (new ConciergeShips())->find("shipCode=:sCode","sCode={$shipCode}")->fetch();
            
             $shipCode = $shipCode;
             $dmvID = $noContent->shipID ?? 0;

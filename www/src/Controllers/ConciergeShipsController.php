@@ -3,13 +3,13 @@
 namespace Src\Controllers;
 
 use Src\Models\SysTokens; // validateToken requires
-use Src\Models\Ships; // Model Ships
+use Src\Models\ConciergeShips; // Model ConciergeShips
 
 // para contagem
-use Src\Models\DailyPrograms; // Model Ships
-use Src\Models\DailyMenus; // Model Ships
-use Src\Models\Shops; // Model Ships
-use Src\Models\Spas; // Model Ships
+use Src\Models\DailyPrograms; // Model ConciergeShips
+use Src\Models\DailyMenus; // Model ConciergeShips
+use Src\Models\Shops; // Model ConciergeShips
+use Src\Models\Spas; // Model ConciergeShips
 
 use Firebase\JWT\JWT;
 use Ramsey\Uuid\Uuid;
@@ -18,7 +18,7 @@ use Ramsey\Uuid\Uuid;
 
 // openweathermap
 
-class ShipsController
+class ConciergeShipsController
 {
     /**
      * Validate Token
@@ -66,8 +66,8 @@ class ShipsController
     public function getAll($headers)
     {
         #$this->validateToken($headers);
-        $ships = (new Ships())->find("deleted_at IS NULL")->fetch(true);
-        $data = $ships ? array_map(fn($ships) => $ships->data(), $ships) : [];
+        $ConciergeShips = (new ConciergeShips())->find("deleted_at IS NULL")->fetch(true);
+        $data = $ConciergeShips ? array_map(fn($ConciergeShips) => $ConciergeShips->data(), $ConciergeShips) : [];
 
         http_response_code(200);
         echo json_encode($data);
@@ -79,7 +79,7 @@ class ShipsController
     public function getByID($id,$headers)
     {
         #$this->validateToken($headers);
-        $ship = (new Ships())->find("shipID=:id AND deleted_at IS NULL","id={$id}")->fetch();
+        $ship = (new ConciergeShips())->find("shipID=:id AND deleted_at IS NULL","id={$id}")->fetch();
         if (!$ship) {
             http_response_code(404);
             echo json_encode(["error" => "Ship not found"]);
@@ -96,7 +96,7 @@ class ShipsController
     public function getByUUID($uuid,$headers)
     {
         #$this->validateToken($headers);
-        $ship = (new Ships())->find("shipUUID=:uuid AND deleted_at IS NULL ","uuid={$uuid}")->fetch();
+        $ship = (new ConciergeShips())->find("shipUUID=:uuid AND deleted_at IS NULL ","uuid={$uuid}")->fetch();
         if (!$ship) {
             http_response_code(404);
             echo json_encode(["error" => "Ship not found"]);
@@ -113,13 +113,13 @@ class ShipsController
     public function getByShipCode($code,$headers)
     {
         #$this->validateToken($headers);
-        $ships = (new Ships())->find("shipCode=:ship AND deleted_at IS NULL","ship={$code}")->fetch(true);
-        if (!$ships) {
+        $ConciergeShips = (new ConciergeShips())->find("shipCode=:ship AND deleted_at IS NULL","ship={$code}")->fetch(true);
+        if (!$ConciergeShips) {
             http_response_code(404);
             echo json_encode(["error" => "Ship not found"]);
             return;
         }
-        $data = $ships ? array_map(fn($ships) => $ships->data(), $ships) : [];
+        $data = $ConciergeShips ? array_map(fn($ConciergeShips) => $ConciergeShips->data(), $ConciergeShips) : [];
 
 
         http_response_code(200);
@@ -133,7 +133,7 @@ class ShipsController
     {
 
         #$this->validateToken($headers);
-        $ship = (new Ships())->find("shipCode=:sCode AND shipStatus=:st AND deleted_at IS NULL","sCode={$shipCode}&st=1")->fetch();
+        $ship = (new ConciergeShips())->find("shipCode=:sCode AND ConciergeShipstatus=:st AND deleted_at IS NULL","sCode={$shipCode}&st=1")->fetch();
         if (!$ship) {
             http_response_code(404);
             echo json_encode(["error" => "Ship Logo File Not found"]);
@@ -155,7 +155,7 @@ class ShipsController
     public function getMenuPosition($shipCode, $headers)
     {
         // $this->validateToken($headers); // se quiser ativar depois
-        $ship = (new Ships())->find("shipCode=:sCode AND shipStatus=:st AND deleted_at IS NULL", "sCode={$shipCode}&st=1")->fetch();
+        $ship = (new ConciergeShips())->find("shipCode=:sCode AND ConciergeShipstatus=:st AND deleted_at IS NULL", "sCode={$shipCode}&st=1")->fetch();
     
         if (!$ship) {
             http_response_code(404);
@@ -217,7 +217,7 @@ class ShipsController
     {
 
         #$this->validateToken($headers);
-        $ship = (new Ships())->find("shipCode=:sCode AND shipStatus=:st AND deleted_at IS NULL","sCode={$shipCode}&st=1")->fetch();
+        $ship = (new ConciergeShips())->find("shipCode=:sCode AND ConciergeShipstatus=:st AND deleted_at IS NULL","sCode={$shipCode}&st=1")->fetch();
         if (!$ship) {
             http_response_code(404);
             echo json_encode(["error" => "Ship Image File Not found"]);
@@ -240,7 +240,7 @@ class ShipsController
     {
         #$this->validateToken($headers);
 
-        $ship = new Ships();
+        $ship = new ConciergeShips();
         // campos para o insert
         // dmTypeUUID, shipCode, operCode, dmTypeName, dmTypeStatus
      
@@ -271,7 +271,7 @@ class ShipsController
         $id = $data['shipID'];
         unset($data['shipID']);
 
-        $ship = (new Ships())->findById($id);
+        $ship = (new ConciergeShips())->findById($id);
         // shipID, dmTypeUUID, shipCode, operCode, dmTypeName, dmTypeStatus
         if (!$ship) {
             http_response_code(404);
@@ -307,7 +307,7 @@ class ShipsController
     {
         #$this->validateToken($headers);
 
-        $ship = (new Ships())->findById($id);
+        $ship = (new ConciergeShips())->findById($id);
         if (!$ship) {
             http_response_code(404);
             echo json_encode(["error" => "Ship not found"]);

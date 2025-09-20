@@ -8888,3 +8888,147 @@ vendor/symfony/deprecation-contracts/README.md
 vendor/symfony/deprecation-contracts/function.php
           1,014 100%    1.91kB/s    0:00:00            1,014 100%    1.91kB/s    0:00:00 (xfr#4086, to-chk=0/4775)
 [2025-09-20 09:56:28] --- Fim do deploy DEV ---
+[2025-09-20 10:15:50] --- Início do deploy PRD ---
+[2025-09-20 10:15:50] Deploy completo da pasta www/
+[2025-09-20 10:15:50] Remote Path -> /docker/projetos/mystic_river_concierge_ama-prd/www
+[2025-09-20 10:15:50] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-20 10:15:50] User -> aborba
+[2025-09-20 10:15:50] Server -> 10.178.103.20
+[2025-09-20 10:16:01] --- Fim do deploy DEV ---
+[2025-09-20 10:16:08] --- Início do deploy PRD ---
+[2025-09-20 10:16:08] Deploy completo da pasta www/
+[2025-09-20 10:16:08] Remote Path -> /docker/projetos/mystic_river_concierge_ama-prd/www
+[2025-09-20 10:16:08] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-20 10:16:08] User -> aborba
+[2025-09-20 10:16:08] Server -> 10.178.103.20
+[2025-09-20 10:16:14] --- Fim do deploy DEV ---
+[2025-09-20 10:16:18] --- Início do deploy PRD ---
+[2025-09-20 10:16:18] Deploy completo da pasta www/
+[2025-09-20 10:16:18] Remote Path -> /docker/projetos/mystic_river_concierge_ama-prd/www
+[2025-09-20 10:16:18] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-20 10:16:18] User -> aborba
+[2025-09-20 10:16:18] Server -> 10.178.103.20
+[2025-09-20 10:16:25] --- Fim do deploy DEV ---
+[2025-09-20 10:34:15] --- Início do deploy PRD ---
+[2025-09-20 10:34:15] Deploy completo da pasta www/
+[2025-09-20 10:34:15] Remote Path -> /docker/projetos/mystic_river_concierge_ama-prd/www
+[2025-09-20 10:34:15] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-20 10:34:15] User -> aborba
+[2025-09-20 10:34:15] Server -> 10.178.103.20
+[2025-09-20 10:34:21] --- Fim do deploy DEV ---
+[2025-09-20 10:35:33] --- Início do deploy PRD ---
+[2025-09-20 10:35:33] Deploy completo da pasta www/
+[2025-09-20 10:35:33] Remote Path -> /docker/projetos/mystic_river_concierge_ama-prd/www
+[2025-09-20 10:35:33] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-20 10:35:33] User -> aborba
+[2025-09-20 10:35:33] Server -> 10.178.103.20
+[2025-09-20 10:35:43] --- Fim do deploy DEV ---
+[2025-09-20 10:36:57] --- Início do deploy PRD ---
+[2025-09-20 10:36:57] Deploy completo da pasta www/
+[2025-09-20 10:36:57] Remote Path -> /docker/projetos/mystic_river_concierge_ama-prd/www
+[2025-09-20 10:36:57] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-20 10:36:57] User -> aborba
+[2025-09-20 10:36:57] Server -> 10.178.103.20
+[2025-09-20 10:36:58] --- Fim do deploy DEV ---
+[2025-09-20 10:40:41] --- Início do deploy PRD ---
+[2025-09-20 10:40:41] Deploy completo da pasta www/
+[2025-09-20 10:40:41] Remote Path -> /docker/projetos/mystic_river_concierge_ama-prd/www
+[2025-09-20 10:40:41] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-20 10:40:41] User -> aborba
+[2025-09-20 10:40:41] Server -> 10.178.103.20
+sending incremental file list
+res/js/_config.js
+            281 100%    0.00kB/s    0:00:00              281 100%    0.00kB/s    0:00:00 (xfr#1, to-chk=444/4775)
+src/Parameters.php
+            700  12%  683.59kB/s    0:00:00            5,803 100%    5.53MB/s    0:00:00 (xfr#2, to-chk=441/4775)
+[2025-09-20 10:40:42] --- Fim do deploy DEV ---
+[2025-09-20 10:45:31] --- Início do deploy PRD ---
+[2025-09-20 10:45:31] Deploy completo da pasta www/
+[2025-09-20 10:45:31] Remote Path -> /docker/projetos/mystic_river_concierge_ama-prd/www
+[2025-09-20 10:45:31] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-20 10:45:31] User -> aborba
+[2025-09-20 10:45:31] Server -> 10.178.103.20
+sending incremental file list
+no_content/
+res/index.html
+            700  10%    0.00kB/s    0:00:00            6,888 100%    5.90MB/s    0:00:00 (xfr#1, to-chk=448/4775)
+src/Controllers/DailyMenusVerticaisController.php
+            700   7%  683.59kB/s    0:00:00            9,229 100%    8.80MB/s    0:00:00 (xfr#2, to-chk=433/4775)
+[2025-09-20 10:45:33] --- Fim do deploy DEV ---
+[2025-09-20 10:46:02] --- Início do deploy PRD ---
+[2025-09-20 10:46:02] Deploy completo da pasta www/
+[2025-09-20 10:46:02] Remote Path -> /docker/projetos/mystic_river_concierge_ama-prd/www
+[2025-09-20 10:46:02] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-20 10:46:02] User -> aborba
+[2025-09-20 10:46:02] Server -> 10.178.103.20
+sending incremental file list
+[2025-09-20 10:46:04] --- Fim do deploy DEV ---
+[2025-09-20 10:47:27] --- Início do deploy PRD ---
+[2025-09-20 10:47:27] Deploy completo da pasta www/
+[2025-09-20 10:47:27] Remote Path -> /docker/projetos/mystic_river_concierge_ama-prd/www
+[2025-09-20 10:47:27] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-20 10:47:27] User -> aborba
+[2025-09-20 10:47:27] Server -> 10.178.103.20
+[2025-09-20 10:47:31] --- Fim do deploy DEV ---
+[2025-09-20 10:47:40] --- Início do deploy PRD ---
+[2025-09-20 10:47:40] Deploy completo da pasta www/
+[2025-09-20 10:47:40] Remote Path -> /docker/projetos/mystic_river_concierge_ama-prd/www
+[2025-09-20 10:47:40] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-20 10:47:40] User -> aborba
+[2025-09-20 10:47:40] Server -> 10.178.103.20
+sending incremental file list
+res/index.html
+            700  10%    0.00kB/s    0:00:00            6,894 100%    5.91MB/s    0:00:00 (xfr#1, to-chk=448/4775)
+[2025-09-20 10:47:41] --- Fim do deploy DEV ---
+[2025-09-20 10:54:36] --- Início do deploy PRD ---
+[2025-09-20 10:54:36] Deploy completo da pasta www/
+[2025-09-20 10:54:36] Remote Path -> /docker/projetos/mystic_river_concierge_ama-prd/www
+[2025-09-20 10:54:36] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-20 10:54:36] User -> aborba
+[2025-09-20 10:54:36] Server -> 10.178.103.20
+sending incremental file list
+deleting no_content/
+src/Controllers/DailyMenusVerticaisController.php
+          1,455  15%    0.00kB/s    0:00:00            9,284 100%    7.47MB/s    0:00:00 (xfr#1, to-chk=433/4774)
+[2025-09-20 10:54:36] --- Fim do deploy DEV ---
+[2025-09-20 10:55:21] --- Início do deploy PRD ---
+[2025-09-20 10:55:21] Deploy completo da pasta www/
+[2025-09-20 10:55:21] Remote Path -> /docker/projetos/mystic_river_concierge_ama-prd/www
+[2025-09-20 10:55:21] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-20 10:55:21] User -> aborba
+[2025-09-20 10:55:21] Server -> 10.178.103.20
+sending incremental file list
+src/Controllers/DailyMenusVerticaisController.php
+          1,409  15%    0.00kB/s    0:00:00            9,302 100%    7.53MB/s    0:00:00 (xfr#1, to-chk=433/4774)
+[2025-09-20 10:55:22] --- Fim do deploy DEV ---
+[2025-09-20 10:56:04] --- Início do deploy PRD ---
+[2025-09-20 10:56:04] Deploy completo da pasta www/
+[2025-09-20 10:56:04] Remote Path -> /docker/projetos/mystic_river_concierge_ama-prd/www
+[2025-09-20 10:56:04] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-20 10:56:04] User -> aborba
+[2025-09-20 10:56:04] Server -> 10.178.103.20
+sending incremental file list
+src/Controllers/DailyMenusVerticaisController.php
+          1,401  15%    0.00kB/s    0:00:00            9,303 100%    7.54MB/s    0:00:00 (xfr#1, to-chk=433/4774)
+[2025-09-20 10:56:05] --- Fim do deploy DEV ---
+[2025-09-20 10:57:10] --- Início do deploy PRD ---
+[2025-09-20 10:57:10] Deploy completo da pasta www/
+[2025-09-20 10:57:10] Remote Path -> /docker/projetos/mystic_river_concierge_ama-prd/www
+[2025-09-20 10:57:10] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-20 10:57:10] User -> aborba
+[2025-09-20 10:57:10] Server -> 10.178.103.20
+sending incremental file list
+deleting src/Controllers/ShipsController.php
+src/Controllers/ConciergeShipsController.php
+         10,289 100%    0.00kB/s    0:00:00           10,289 100%    0.00kB/s    0:00:00 (xfr#1, to-chk=435/4774)
+[2025-09-20 10:57:11] --- Fim do deploy DEV ---
+[2025-09-20 11:18:18] --- Início do deploy PRD ---
+[2025-09-20 11:18:18] Deploy completo da pasta www/
+[2025-09-20 11:18:18] Remote Path -> /docker/projetos/mystic_river_concierge_ama-prd/www
+[2025-09-20 11:18:18] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-20 11:18:18] User -> aborba
+[2025-09-20 11:18:18] Server -> 10.178.103.20
+sending incremental file list
+src/Parameters.php
+          1,401  24%    0.00kB/s    0:00:00            5,804 100%    4.20MB/s    0:00:00 (xfr#1, to-chk=441/4774)
+[2025-09-20 11:18:20] --- Fim do deploy DEV ---

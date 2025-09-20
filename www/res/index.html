@@ -21,9 +21,11 @@
         // Configurações da aplicação (via _config.js)
         const { shipCode, server, container, tokenAPI } = window.APP_CONFIG;
         const apiHost      = /^https?:\/\//i.test(server) ? server : 'http://' + server;
-        const pathAPI      = `${apiHost}/${container}/apis/dailyMenusVerticais/getDmvFile/${shipCode}`;
+        const pathAPI      = `${apiHost}/${container}/apis/dailyMenusVerticais/getFiles/${shipCode}`;
         const basePath     = `${apiHost}/${container}/media/dMenusv/`;
         const fallbackBase = `${apiHost}/${container}/nocontent/restaurant/`;
+
+        console.log(`API: ${pathAPI}\nBase: ${basePath}\nFallback: ${fallbackBase}`);
 
         // Parâmetros do slideshow
         const SLIDE_DURATION      = 10000;  // ms estático de cada slide

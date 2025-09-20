@@ -28,12 +28,10 @@ fi
 USERMACOS="${USERS_MACOS[$INDEX]}"
 USERSSH="${USERS_SSH[$INDEX]}"
 
-USE_SSH_PASS=false
-if [[ "$USERSSH" != "aborba" ]]; then
   USE_SSH_PASS=true
   read -s -p "Digite a senha SSH do utilizador selecionado ($USERSSH): " USERSSHPASSWORD
   echo
-fi
+
 
 LOCAL_BASE="/Users/${USERMACOS}/docker/projetos/${PROJECTFOLDER_LOCAL}"
 REMOTE_BASE="/docker/projetos/${PROJECTFOLDER_REMOTE}"
