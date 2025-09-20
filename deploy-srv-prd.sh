@@ -2,7 +2,7 @@
 
 clear
 
-SERVER="10.177.162.20" # queen isabel
+SERVER="10.178.103.20" # amavida
 # SERVER="10.160.3.1"
 PROJECTFOLDER_LOCAL="mystic_river_concierge_ama-local"
 PROJECTFOLDER_REMOTE="mystic_river_concierge_ama-prd"
@@ -118,8 +118,9 @@ else
       --exclude 'composer.lock' \
       --exclude 'media/**' \
       --exclude 'nocontent/**' \
-      --exclude 'vendor/**' \
       --exclude '_not/' \
+      --exclude 's/' \
+      --exclude 'sv/' \
       -e "ssh -o StrictHostKeyChecking=no -o ConnectTimeout=30" \
       --progress "$LOCAL_PATH" "$USERSSH@$SERVER:$REMOTE_PATH" \
       | tee -a "$LOG_FILE"
@@ -147,8 +148,9 @@ else
       --exclude 'composer.lock' \
       --exclude 'media/**' \
       --exclude 'nocontent/**' \
-      --exclude 'vendor/**' \
       --exclude '_not/' \
+      --exclude 's/' \
+      --exclude 'sv/' \
       -e "ssh -o StrictHostKeyChecking=no -o ConnectTimeout=30" \
       --progress "$LOCAL_PATH" "$USERSSH@$SERVER:$REMOTE_PATH" \
       | tee -a "$LOG_FILE"
