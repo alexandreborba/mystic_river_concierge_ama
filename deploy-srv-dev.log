@@ -9344,3 +9344,35 @@ deleting res/js/__config.js
 res/js/_config.js
             284 100%    0,00kB/s    0:00:00              284 100%    0,00kB/s    0:00:00 (xfr#1, to-chk=448/4780)
 [2025-09-22 17:03:47] --- Fim do deploy DEV ---
+[2025-09-22 17:10:40] --- Início do deploy DEV ---
+[2025-09-22 17:10:40] Deploy completo da pasta www/
+[2025-09-22 17:10:40] Remote Path -> /docker/projetos/mystic_river_concierge_ama-dev/www
+[2025-09-22 17:10:40] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-22 17:10:40] User -> aborba
+[2025-09-22 17:10:40] Server -> srvdockerlab
+sending incremental file list
+res/index.html
+          7.517 100%    0,00kB/s    0:00:00            7.517 100%    0,00kB/s    0:00:00 (xfr#1, to-chk=452/4780)
+[2025-09-22 17:10:41] --- Fim do deploy DEV ---
+[2025-09-22 17:17:36] --- Início do deploy DEV ---
+[2025-09-22 17:17:36] Deploy completo da pasta www/
+[2025-09-22 17:17:36] Remote Path -> /docker/projetos/mystic_river_concierge_ama-dev/www
+[2025-09-22 17:17:36] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-22 17:17:36] User -> aborba
+[2025-09-22 17:17:36] Server -> srvdockerlab
+sending incremental file list
+res/js/_config.js
+            319 100%    0,00kB/s    0:00:00              319 100%    0,00kB/s    0:00:00 (xfr#1, to-chk=448/4780)
+[2025-09-22 17:17:37] --- Fim do deploy DEV ---
+[2025-09-22 17:29:35] --- Início do deploy DEV ---
+[2025-09-22 17:29:35] Deploy completo da pasta www/
+[2025-09-22 17:29:35] Remote Path -> /docker/projetos/mystic_river_concierge_ama-dev/www
+[2025-09-22 17:29:35] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-22 17:29:35] User -> aborba
+[2025-09-22 17:29:35] Server -> srvdockerlab
+sending incremental file list
+res/index.html
+          8.465 100%    0,00kB/s    0:00:00            8.465 100%    0,00kB/s    0:00:00 (xfr#1, to-chk=452/4780)
+res/js/_config.js
+            387 100%  377,93kB/s    0:00:00              387 100%  377,93kB/s    0:00:00 (xfr#2, to-chk=448/4780)
+[2025-09-22 17:29:36] --- Fim do deploy DEV ---
