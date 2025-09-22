@@ -9376,3 +9376,23 @@ res/index.html
 res/js/_config.js
             387 100%  377,93kB/s    0:00:00              387 100%  377,93kB/s    0:00:00 (xfr#2, to-chk=448/4780)
 [2025-09-22 17:29:36] --- Fim do deploy DEV ---
+[2025-09-22 17:34:24] --- Início do deploy DEV ---
+[2025-09-22 17:34:24] Deploy completo da pasta www/
+[2025-09-22 17:34:24] Remote Path -> /docker/projetos/mystic_river_concierge_ama-dev/www
+[2025-09-22 17:34:24] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-22 17:34:24] User -> aborba
+[2025-09-22 17:34:24] Server -> srvdockerlab
+sending incremental file list
+res/index.html
+            700   8%    0,00kB/s    0:00:00            8.465 100%    7,41MB/s    0:00:00 (xfr#1, to-chk=452/4780)
+[2025-09-22 17:34:25] --- Fim do deploy DEV ---
+[2025-09-22 17:36:00] --- Início do deploy DEV ---
+[2025-09-22 17:36:00] Deploy completo da pasta www/
+[2025-09-22 17:36:00] Remote Path -> /docker/projetos/mystic_river_concierge_ama-dev/www
+[2025-09-22 17:36:00] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-22 17:36:00] User -> aborba
+[2025-09-22 17:36:00] Server -> srvdockerlab
+sending incremental file list
+res/index.html
+          7.517 100%    0,00kB/s    0:00:00            7.517 100%    0,00kB/s    0:00:00 (xfr#1, to-chk=452/4780)
+[2025-09-22 17:36:01] --- Fim do deploy DEV ---

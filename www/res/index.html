@@ -1,249 +1,204 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=1080, height=1920, initial-scale=1.0">
-  <title>Menu Vertical - Slideshow</title>
-  <style>
-    :root{
-      /* Fallbacks – serão substituídos via JS com APP_CONFIG */
-      --progress-height: 8px;
-      --progress-color: rgba(255,255,255,1);
-      --progress-bg: rgba(0,0,0,0.25);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920, initial-scale=1.0">
+    <title>Menu Vertical - Slideshow</title>
+    <style>
+        body { margin: 0; background-color: #fff; height: 100vh; overflow: hidden; }
+        #slideshow { position: relative; width: 100%; height: 100%; overflow: hidden; }
+        .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: none; }
+        .slide.active { display: block; }
+    </style>
 
-    body { margin: 0; background-color: #fff; height: 100vh; overflow: hidden; }
-    #slideshow { position: relative; width: 100%; height: 100%; overflow: hidden; }
-    .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: none; }
-    .slide.active { display: block; }
-
-    /* Barra de progresso no rodapé (apenas 2+ slides) */
-    #progress{
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      height: var(--progress-height);
-      background: var(--progress-bg);
-      z-index: 10;
-      display: none;      /* controlado via JS */
-      overflow: hidden;
-      pointer-events: none;
-    }
-    #progress-bar{
-      width: 0%;
-      height: 100%;
-      background: var(--progress-color);
-      transition: none;   /* quem anima é o jQuery */
-    }
-    /* Visual opcional quando pausado (transição a decorrer) */
-    #progress.paused #progress-bar {
-      opacity: 0.6;
-    }
-  </style>
-
-  <!-- Carrega js/_config.js com timestamp para evitar cache -->
-  <script>
-    (function () {
-      const v = Date.now();
-      const s = document.createElement('script');
-      s.src = 'js/_config.js?v=' + v;
-      s.async = false;
-      document.head.appendChild(s);
-    })();
-  </script>
+    <!-- Carrega js/_config.js com timestamp para evitar cache -->
+    <script>
+      (function () {
+        const v = Date.now(); // mude para um número fixo se quiser cache entre deploys
+        const s = document.createElement('script');
+        s.src = 'js/_config.js?v=' + v;
+        s.async = false; // mantém ordem caso encadeie outros scripts
+        document.head.appendChild(s);
+      })();
+    </script>
 </head>
 <body>
-  <div id="slideshow">
-    <!-- Barra de progresso -->
-    <div id="progress" aria-hidden="true">
-      <div id="progress-bar"></div>
-    </div>
-  </div>
+    <div id="slideshow"></div>
 
-  <script src="jquery/jquery-3.7.1.min.js"></script>
+    <script src="jquery/jquery-3.7.1.min.js"></script>
 
-  <script>
-  (function boot() {
-    function whenDomReady(fn) {
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', fn, { once: true });
-      } else {
-        fn();
+    <!-- REMOVIDO: <script type="text/javascript" src="js/_config.js"></script> -->
+
+    <script>
+    /**
+     * Arranque seguro:
+     * - Espera pelo _config.js (window.APP_CONFIG)
+     * - Espera pelo jQuery (window.jQuery)
+     * - Só depois corre o código da página e, se necessário, espera pelo DOM pronto
+     */
+    (function boot() {
+      function whenDomReady(fn) {
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', fn, { once: true });
+        } else {
+          fn();
+        }
       }
-    }
 
-    function cssSize(val, fallback) {
-      if (typeof val === 'number') return val + 'px';
-      if (typeof val === 'string' && val.trim()) return val.trim();
-      return fallback;
-    }
+      function startApp() {
+        // Configurações da aplicação (via _config.js)
+        const { shipCode, server, container, tokenAPI } = window.APP_CONFIG;
+        const apiHost      = /^https?:\/\//i.test(server) ? server : 'http://' + server;
+        const pathAPI      = `${apiHost}/${container}/apis/dailyMenusVerticais/getFiles/${shipCode}`;
+        const basePath     = `${apiHost}/${container}/media/dMenusv/`;
+        const fallbackBase = `${apiHost}/${container}/nocontent/restaurant/`;
 
-    function startApp() {
-      const APP = window.APP_CONFIG || {};
+        // Opcional para debug:
+        // alert(`API: ${pathAPI}\nBase: ${basePath}\nFallback: ${fallbackBase}`);
 
-      // Aplica APP_CONFIG às CSS variables (sobrepõe os fallbacks do <style>)
-      const rootStyle = document.documentElement.style;
-      rootStyle.setProperty('--progress-color',  APP.progressbar_color  || 'rgba(255,255,255,1)');
-      rootStyle.setProperty('--progress-height', cssSize(APP.progressbar_height, '8px'));
-      rootStyle.setProperty('--progress-bg',     APP.progressbar_bg     || 'rgba(0,0,0,0.25)');
+        // Parâmetros do slideshow
+        const SLIDE_DURATION      = 10000;  // ms estático de cada slide
+        const TRANSITION_DURATION = 900;    // ms duração da transição
+        const ANIMATION_TYPE      = 'fade'; // 'fade' | 'slide-left' | 'slide-right'
+        const POLL_INTERVAL       = 5000;   // ms intervalo de polling
 
-      // Config da aplicação
-      const { shipCode, server, container, tokenAPI } = APP;
-      const apiHost      = /^https?:\/\//i.test(server) ? server : 'http://' + server;
-      const pathAPI      = `${apiHost}/${container}/apis/dailyMenusVerticais/getFiles/${shipCode}`;
-      const basePath     = `${apiHost}/${container}/media/dMenusv/`;
-      const fallbackBase = `${apiHost}/${container}/nocontent/restaurant/`;
+        let rotationTimer = null;
+        let lastFilesJson = null;
 
-      // Parâmetros do slideshow
-      const SLIDE_DURATION      = 10000;   // ms em exibição
-      const TRANSITION_DURATION = 900;     // ms transição entre slides
-      const ANIMATION_TYPE      = 'fade';  // 'fade' | 'slide-left' | 'slide-right'
-      const POLL_INTERVAL       = 5000;    // ms polling API
-
-      let rotationTimer = null;
-      let lastFilesJson = null;
-
-      // --- PROGRESS BAR helpers (com pausa durante transição) ---
-      const $progress    = $('#progress');
-      const $progressBar = $('#progress-bar');
-
-      function hideProgress(){
-        $progress.removeClass('paused').hide();
-        $progressBar.stop(true, true).css('width', '0%');
-      }
-      function startProgress(duration){
-        $progress.removeClass('paused').show();
-        $progressBar.stop(true, true).css('width', '0%')
-                   .animate({ width: '100%' }, { duration, easing: 'linear' });
-      }
-      function pauseProgress(){
-        // congela a largura atual e marca estado pausado
-        $progress.addClass('paused');
-        $progressBar.stop(true, false); // true: clear queue, false: NÃO salta para fim
-      }
-      // ---------------------------------------------------------
-
-      /**
-       * Inicia/reinicia o slideshow.
-       * - 0 slides: nada
-       * - 1 slide: exibe estático + oculta barra
-       * - 2+ slides: roda, barra anima durante exibição, PAUSA durante transição
-       */
-      function initSlideshow(files, path) {
-        clearInterval(rotationTimer);
-        $('#slideshow').children('.slide').remove();
-        hideProgress();
-
-        // Insere imagens
-        files.forEach(file => {
-          $('<img>')
-            .attr('src', path + file)
-            .addClass('slide')
-            .css('transition', `${TRANSITION_DURATION}ms ease`)
-            .appendTo('#slideshow');
-        });
-
-        const $slides = $('#slideshow').find('.slide');
-        const n = $slides.length;
-        if (n === 0) return;
-
-        if (n === 1) {
-          $slides.eq(0).addClass('active').show();
-          hideProgress();
-          return;
+        // Pré-carrega imagens para evitar flicker
+        function preloadImages(urls) {
+          return Promise.all(urls.map(src => new Promise(res => {
+            const img = new Image();
+            img.onload = img.onerror = res;
+            img.src = src;
+          })));
         }
 
-        // >=2 imagens: slideshow + barra
-        let current = 0;
-        $slides.eq(0).addClass('active').fadeIn(TRANSITION_DURATION, () => {
-          startProgress(SLIDE_DURATION); // anima durante o tempo de exibição
-        });
+        /**
+         * Inicia ou reinicia o slideshow. Se apenas um slide, exibe estático.
+         * @param {string[]} files - lista de nomes de arquivos
+         * @param {string} path - path base dos arquivos
+         */
+        function initSlideshow(files, path) {
+          clearInterval(rotationTimer);
+          const $slideshow = $('#slideshow').empty();
 
-        rotationTimer = setInterval(() => {
-          // Começa a transição: PAUSA a barra no estado atual
-          pauseProgress();
+          // Insere imagens
+          files.forEach(file => {
+            $('<img>')
+              .attr('src', path + file)
+              .addClass('slide')
+              .css('transition', `${TRANSITION_DURATION}ms ease`)
+              .appendTo($slideshow);
+          });
 
-          const $out = $slides.eq(current);
-          const next = (current + 1) % n;
-          const $in  = $slides.eq(next);
+          const $slides = $slideshow.find('.slide');
+          if ($slides.length === 0) return;
 
-          if (ANIMATION_TYPE === 'fade') {
-            $out.fadeOut(TRANSITION_DURATION);
-            $in.fadeIn(TRANSITION_DURATION, () => {
-              $out.removeClass('active');
-              $in.addClass('active');
-              // Nova exibição: reinicia a barra do zero
-              startProgress(SLIDE_DURATION);
-            });
-          } else if (ANIMATION_TYPE === 'slide-left') {
-            $in.css({ left: '100%', display: 'block' })
-               .animate({ left: '0%' }, TRANSITION_DURATION);
-            $out.animate({ left: '-100%' }, TRANSITION_DURATION, () => {
-              $out.css({ display: 'none', left: 0 }).removeClass('active');
-              $in.addClass('active');
-              startProgress(SLIDE_DURATION);
-            });
-          } else if (ANIMATION_TYPE === 'slide-right') {
-            $in.css({ left: '-100%', display: 'block' })
-               .animate({ left: '0%' }, TRANSITION_DURATION);
-            $out.animate({ left: '100%' }, TRANSITION_DURATION, () => {
-              $out.css({ display: 'none', left: 0 }).removeClass('active');
-              $in.addClass('active');
-              startProgress(SLIDE_DURATION);
-            });
+          // Se um único slide, exibe estático
+          if ($slides.length === 1) {
+            $slides.eq(0).addClass('active').show();
+            return;
           }
-          current = next;
-        }, SLIDE_DURATION + TRANSITION_DURATION);
-      }
 
-      // Polling e atualização condicional
-      function pollMenus() {
-        $.ajax({
-          url: pathAPI,
-          type: 'GET',
-          dataType: 'json',
-          headers: { 'Authorization': 'Bearer ' + tokenAPI },
-          success(data) {
-            const items = Array.isArray(data) ? data : [data];
-            items.sort((a, b) => a.dmvOrder - b.dmvOrder);
+          // Caso múltiplos slides, animações periódicas
+          let current = 0;
+          $slides.eq(0).addClass('active').fadeIn(TRANSITION_DURATION);
+          rotationTimer = setInterval(() => {
+            const $out = $slides.eq(current);
+            const next = (current + 1) % $slides.length;
+            const $in = $slides.eq(next);
 
-            let files = [], path = basePath;
-            if (items.length > 0) {
-              if (items[0].dmvFile === 'no_content.png') {
-                files = ['no_content.png' + '?' + items[0].dmvDate];
-                path = fallbackBase;
-              } else {
-                files = items.map(item => item.dmvFile + '?' + item.dmvDate);
-                path = basePath;
+            if (ANIMATION_TYPE === 'fade') {
+              $out.fadeOut(TRANSITION_DURATION);
+              $in.fadeIn(TRANSITION_DURATION, () => {
+                $out.removeClass('active');
+                $in.addClass('active');
+              });
+            } else if (ANIMATION_TYPE === 'slide-left') {
+              $in.css({ left: '100%', display: 'block' })
+                 .animate({ left: '0%' }, TRANSITION_DURATION);
+              $out.animate({ left: '-100%' }, TRANSITION_DURATION, () => {
+                $out.css({ display: 'none', left: 0 }).removeClass('active');
+                $in.addClass('active');
+              });
+            } else if (ANIMATION_TYPE === 'slide-right') {
+              $in.css({ left: '-100%', display: 'block' })
+                 .animate({ left: '0%' }, TRANSITION_DURATION);
+              $out.animate({ left: '100%' }, TRANSITION_DURATION, () => {
+                $out.css({ display: 'none', left: 0 }).removeClass('active');
+                $in.addClass('active');
+              });
+            }
+            current = next;
+          }, SLIDE_DURATION + TRANSITION_DURATION);
+        }
+
+        /**
+         * Polling da API e atualiza slideshow apenas se a lista de arquivos mudou.
+         */
+        function pollMenus() {
+          $.ajax({
+            url: pathAPI,
+            type: 'GET',
+            dataType: 'json',
+            headers: { 'Authorization': 'Bearer ' + tokenAPI },
+            success(data) {
+              const items = Array.isArray(data) ? data : [data];
+              items.sort((a, b) => a.dmvOrder - b.dmvOrder);
+
+              // Prepara lista de arquivos
+              let files, path;
+              if (items.length > 0) {
+                if (items[0].dmvFile === 'no_content.png') {
+                  // Se o primeiro item for 'no_content.png', usa fallback
+                  files = ['no_content.png' + '?' + items[0].dmvDate];
+                  path = fallbackBase;
+                } else {
+                  // Caso contrário, usa os arquivos normais
+                  files = items.map(item => item.dmvFile + '?' + item.dmvDate);
+                  path = basePath;
+                }
               }
-            }
 
-            const filesJson = JSON.stringify(files);
-            if (filesJson !== lastFilesJson) {
-              lastFilesJson = filesJson;
-              initSlideshow(files, path);
+              const filesJson = JSON.stringify(files);
+              // Só reinicia slideshow se a lista mudou
+              if (filesJson !== lastFilesJson) {
+                lastFilesJson = filesJson;
+                initSlideshow(files, path);
+              }
+            },
+            /*
+            error() {
+              // console.error('Erro ao consultar API. Exibindo fallback.');
+              const files = ['no_content.png'];
+              const filesJson = JSON.stringify(files);
+              if (filesJson !== lastFilesJson) {
+                lastFilesJson = filesJson;
+                initSlideshow(files, fallbackBase);
+              }
+            },
+            */
+            complete() {
+              setTimeout(pollMenus, POLL_INTERVAL);
             }
-          },
-          complete() {
-            setTimeout(pollMenus, POLL_INTERVAL);
-          }
-        });
+          });
+        }
+
+        // Inicia polling contínuo
+        pollMenus();
       }
 
-      pollMenus();
-    }
-
-    function tryStart() {
-      if (window.APP_CONFIG && window.jQuery) {
-        whenDomReady(startApp);
-      } else {
-        setTimeout(tryStart, 50);
+      function tryStart() {
+        if (window.APP_CONFIG && window.jQuery) {
+          whenDomReady(startApp);
+        } else {
+          setTimeout(tryStart, 50);
+        }
       }
-    }
 
-    tryStart();
-  })();
-  </script>
+      tryStart();
+    })();
+    </script>
 </body>
 </html>
