@@ -16,7 +16,18 @@
 
     <script src="jquery/jquery-3.7.1.min.js"></script>
     <script type="text/javascript" src="js/_config.js"></script>
+    <!-- Coloque isto NO <head>, antes de qualquer script que use variáveis do _config.js -->
     <script>
+    (function () {
+        const v = Date.now(); // mude para um número fixo se quiser cache entre deploys
+        const s = document.createElement('script');
+        s.src = 'js/_config.js?v=' + v;
+        s.async = false; // ajuda a manter a ordem de execução
+        document.head.appendChild(s);
+    })();
+    </script>
+    <script>
+        
     $(function() {
         // Configurações da aplicação (via _config.js)
         const { shipCode, server, container, tokenAPI } = window.APP_CONFIG;
@@ -26,6 +37,7 @@
         const fallbackBase = `${apiHost}/${container}/nocontent/restaurant/`;
 
         // console.log(`API: ${pathAPI}\nBase: ${basePath}\nFallback: ${fallbackBase}`);
+        alert(`API: ${pathAPI}\nBase: ${basePath}\nFallback: ${fallbackBase}`);
 
         // Parâmetros do slideshow
         const SLIDE_DURATION      = 10000;  // ms estático de cada slide

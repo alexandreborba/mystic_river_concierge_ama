@@ -8962,3 +8962,385 @@ backoffice/_conciergeShips.frm.php
 [2025-09-19 14:12:07] Server -> srvdockerlab
 sending incremental file list
 [2025-09-19 14:12:08] --- Fim do deploy DEV ---
+[2025-09-22 16:19:57] --- Início do deploy DEV ---
+[2025-09-22 16:19:57] Deploy completo da pasta www/
+[2025-09-22 16:19:57] Remote Path -> /docker/projetos/mystic_river_concierge_ama-dev/www
+[2025-09-22 16:19:57] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-22 16:19:57] User -> aborba
+[2025-09-22 16:19:57] Server -> srvdockerlab
+sending incremental file list
+deleting restaurant/js/_config.js
+deleting restaurant/js/
+deleting restaurant/jquery/jquery-3.7.1.min.js
+deleting restaurant/jquery/
+deleting restaurant/index.html
+deleting restaurant/
+deleting no_content/
+deleting concierge/js/respond.min.js
+deleting concierge/js/plugins.js
+deleting concierge/js/modernizr.js
+deleting concierge/js/main.js
+deleting concierge/js/jquery.min.js
+deleting concierge/js/gmaps.min.js
+deleting concierge/js/bootstrap.min.js
+deleting concierge/js/bootstrap.js
+deleting concierge/js/_config.js
+deleting concierge/js/
+deleting concierge/jquery/jquery-3.7.1.min.js
+deleting concierge/jquery/
+deleting concierge/include/phpmailer/get_oauth_token.php
+deleting concierge/include/phpmailer/class.smtp.php
+deleting concierge/include/phpmailer/class.pop3.php
+deleting concierge/include/phpmailer/class.phpmaileroauthgoogle.php
+deleting concierge/include/phpmailer/class.phpmaileroauth.php
+deleting concierge/include/phpmailer/class.phpmailer.php
+deleting concierge/include/phpmailer/VERSION
+deleting concierge/include/phpmailer/PHPMailerAutoload.php
+deleting concierge/include/phpmailer/
+deleting concierge/include/ajax/portfolio-item.html
+deleting concierge/include/ajax/
+deleting concierge/include/sendemail.php
+deleting concierge/include/
+deleting concierge/images/AMS/AMS_1920x1080_low.png
+deleting concierge/images/AMS/AMS_1920x1080_hi.png
+deleting concierge/images/AMS/AMS_1920x1080.png
+deleting concierge/images/AMS/AMS_1920x1050_hi.png
+deleting concierge/images/AMS/
+deleting concierge/images/loading-animation.gif
+deleting concierge/images/grabbing.png
+deleting concierge/images/favicon.ico
+deleting concierge/images/apple-touch-icon.png
+deleting concierge/images/apple-touch-icon-72x72.png
+deleting concierge/images/apple-touch-icon-114x114.png
+deleting concierge/images/AjaxLoader.gif
+deleting concierge/images/
+deleting concierge/fonts/ionicons.woff
+deleting concierge/fonts/ionicons.ttf
+deleting concierge/fonts/ionicons.svg
+deleting concierge/fonts/ionicons.eot
+deleting concierge/fonts/glyphicons-halflings-regular.woff2
+deleting concierge/fonts/glyphicons-halflings-regular.woff
+deleting concierge/fonts/glyphicons-halflings-regular.ttf
+deleting concierge/fonts/glyphicons-halflings-regular.svg
+deleting concierge/fonts/glyphicons-halflings-regular.eot
+deleting concierge/fonts/fontawesome-webfont.woff2
+deleting concierge/fonts/fontawesome-webfont.woff
+deleting concierge/fonts/fontawesome-webfont.ttf
+deleting concierge/fonts/fontawesome-webfont.svg
+deleting concierge/fonts/fontawesome-webfont.eot
+deleting concierge/fonts/flexslider-icon.woff
+deleting concierge/fonts/flexslider-icon.ttf
+deleting concierge/fonts/flexslider-icon.svg
+deleting concierge/fonts/flexslider-icon.eot
+deleting concierge/fonts/FontAwesome.otf
+deleting concierge/fonts/
+deleting concierge/css/photoswipe/default-skin/preloader.gif
+deleting concierge/css/photoswipe/default-skin/default-skin.svg
+deleting concierge/css/photoswipe/default-skin/default-skin.png
+deleting concierge/css/photoswipe/default-skin/default-skin.css
+deleting concierge/css/photoswipe/default-skin/
+deleting concierge/css/photoswipe/photoswipe.css
+deleting concierge/css/photoswipe/
+deleting concierge/css/overlays/09.png
+deleting concierge/css/overlays/08.png
+deleting concierge/css/overlays/07.png
+deleting concierge/css/overlays/06.png
+deleting concierge/css/overlays/05.png
+deleting concierge/css/overlays/04.png
+deleting concierge/css/overlays/03.png
+deleting concierge/css/overlays/02.png
+deleting concierge/css/overlays/01.png
+deleting concierge/css/overlays/
+deleting concierge/css/vegas.min.css
+deleting concierge/css/vegas.css
+deleting concierge/css/magnific-popup.css
+deleting concierge/css/jquery.mCustomScrollbar.min.css
+deleting concierge/css/ionicons.min.css
+deleting concierge/css/ionicons.css
+deleting concierge/css/ie.css
+deleting concierge/css/fonts.css
+deleting concierge/css/font-awesome.min.css
+deleting concierge/css/font-awesome.css
+deleting concierge/css/flexslider.css
+deleting concierge/css/custom.css
+deleting concierge/css/bootstrap.min.css
+deleting concierge/css/bootstrap.css
+deleting concierge/css/animate.min.css
+deleting concierge/css/animate.css
+deleting concierge/css/
+deleting concierge/style.css
+deleting concierge/index.html
+deleting concierge/
+backoffice/__ajax.changeStatus.php
+          1.486  62%    0,00kB/s    0:00:00            2.359 100%  852,54kB/s    0:00:00 (xfr#1, ir-chk=1123/1140)
+backoffice/session_error.log
+            780 100%  761,72kB/s    0:00:00              780 100%  761,72kB/s    0:00:00 (xfr#2, ir-chk=1046/1140)
+backoffice/webarch/css/webarch.css
+            700   0%    3,74kB/s    0:00:58          218.903 100%    1,14MB/s    0:00:00 (xfr#3, to-chk=664/4780)
+deleting src/Controllers/ShipsController.php
+con/
+con/index.html
+         18.920 100%   86,74kB/s    0:00:00           18.920 100%   86,74kB/s    0:00:00 (xfr#4, to-chk=546/4780)
+con/style.css
+         32.768  34%  150,23kB/s    0:00:00           96.051 100%  440,37kB/s    0:00:00 (xfr#5, to-chk=545/4780)
+con/css/
+con/css/animate.css
+         32.768  45%  150,23kB/s    0:00:00           72.259 100%  329,74kB/s    0:00:00 (xfr#6, to-chk=538/4780)
+con/css/animate.min.css
+         32.768  68%  149,53kB/s    0:00:00           47.968 100%  218,90kB/s    0:00:00 (xfr#7, to-chk=537/4780)
+con/css/bootstrap.css
+         32.768  22%  149,53kB/s    0:00:00          146.010 100%  663,20kB/s    0:00:00 (xfr#8, to-chk=536/4780)
+con/css/bootstrap.min.css
+         32.768  27%  148,84kB/s    0:00:00          121.154 100%  550,30kB/s    0:00:00 (xfr#9, to-chk=535/4780)
+con/css/custom.css
+             38 100%    0,17kB/s    0:00:00               38 100%    0,17kB/s    0:00:00 (xfr#10, to-chk=534/4780)
+con/css/flexslider.css
+          6.851 100%   30,97kB/s    0:00:00            6.851 100%   30,97kB/s    0:00:00 (xfr#11, to-chk=533/4780)
+con/css/font-awesome.css
+         32.768  87%  148,15kB/s    0:00:00           37.414 100%  169,15kB/s    0:00:00 (xfr#12, to-chk=532/4780)
+con/css/font-awesome.min.css
+         31.000 100%  139,51kB/s    0:00:00           31.000 100%  139,51kB/s    0:00:00 (xfr#13, to-chk=531/4780)
+con/css/fonts.css
+         32.768  48%  147,47kB/s    0:00:00           67.821 100%  305,21kB/s    0:00:00 (xfr#14, to-chk=530/4780)
+con/css/ie.css
+            151 100%    0,68kB/s    0:00:00              151 100%    0,68kB/s    0:00:00 (xfr#15, to-chk=529/4780)
+con/css/ionicons.css
+         32.768  57%  147,47kB/s    0:00:00           57.193 100%  256,20kB/s    0:00:00 (xfr#16, to-chk=528/4780)
+con/css/ionicons.min.css
+         32.768  63%  146,79kB/s    0:00:00           51.284 100%  229,73kB/s    0:00:00 (xfr#17, to-chk=527/4780)
+con/css/jquery.mCustomScrollbar.min.css
+         32.768  76%  146,79kB/s    0:00:00           42.839 100%  191,90kB/s    0:00:00 (xfr#18, to-chk=526/4780)
+con/css/magnific-popup.css
+          6.951 100%   31,14kB/s    0:00:00            6.951 100%   31,14kB/s    0:00:00 (xfr#19, to-chk=525/4780)
+con/css/vegas.css
+         15.511 100%   69,17kB/s    0:00:00           15.511 100%   69,17kB/s    0:00:00 (xfr#20, to-chk=524/4780)
+con/css/vegas.min.css
+          9.414 100%   41,98kB/s    0:00:00            9.414 100%   41,98kB/s    0:00:00 (xfr#21, to-chk=523/4780)
+con/css/overlays/
+con/css/overlays/01.png
+            211 100%    0,94kB/s    0:00:00              211 100%    0,94kB/s    0:00:00 (xfr#22, to-chk=520/4780)
+con/css/overlays/02.png
+            213 100%    0,95kB/s    0:00:00              213 100%    0,95kB/s    0:00:00 (xfr#23, to-chk=519/4780)
+con/css/overlays/03.png
+            209 100%    0,93kB/s    0:00:00              209 100%    0,93kB/s    0:00:00 (xfr#24, to-chk=518/4780)
+con/css/overlays/04.png
+            211 100%    0,94kB/s    0:00:00              211 100%    0,94kB/s    0:00:00 (xfr#25, to-chk=517/4780)
+con/css/overlays/05.png
+            213 100%    0,95kB/s    0:00:00              213 100%    0,95kB/s    0:00:00 (xfr#26, to-chk=516/4780)
+con/css/overlays/06.png
+            211 100%    0,94kB/s    0:00:00              211 100%    0,94kB/s    0:00:00 (xfr#27, to-chk=515/4780)
+con/css/overlays/07.png
+            215 100%    0,95kB/s    0:00:00              215 100%    0,95kB/s    0:00:00 (xfr#28, to-chk=514/4780)
+con/css/overlays/08.png
+            146 100%    0,65kB/s    0:00:00              146 100%    0,65kB/s    0:00:00 (xfr#29, to-chk=513/4780)
+con/css/overlays/09.png
+            137 100%    0,61kB/s    0:00:00              137 100%    0,61kB/s    0:00:00 (xfr#30, to-chk=512/4780)
+con/css/photoswipe/
+con/css/photoswipe/photoswipe.css
+          4.093 100%   18,17kB/s    0:00:00            4.093 100%   18,17kB/s    0:00:00 (xfr#31, to-chk=511/4780)
+con/css/photoswipe/default-skin/
+con/css/photoswipe/default-skin/default-skin.css
+         11.609 100%   51,53kB/s    0:00:00           11.609 100%   51,53kB/s    0:00:00 (xfr#32, to-chk=509/4780)
+con/css/photoswipe/default-skin/default-skin.png
+            547 100%    2,43kB/s    0:00:00              547 100%    2,43kB/s    0:00:00 (xfr#33, to-chk=508/4780)
+con/css/photoswipe/default-skin/default-skin.svg
+          1.554 100%    6,90kB/s    0:00:00            1.554 100%    6,90kB/s    0:00:00 (xfr#34, to-chk=507/4780)
+con/css/photoswipe/default-skin/preloader.gif
+            866 100%    3,84kB/s    0:00:00              866 100%    3,84kB/s    0:00:00 (xfr#35, to-chk=506/4780)
+con/fonts/
+con/fonts/FontAwesome.otf
+         32.768  24%  144,80kB/s    0:00:00          134.808 100%  593,01kB/s    0:00:00 (xfr#36, to-chk=505/4780)
+con/fonts/flexslider-icon.eot
+          2.082 100%    9,16kB/s    0:00:00            2.082 100%    9,16kB/s    0:00:00 (xfr#37, to-chk=504/4780)
+con/fonts/flexslider-icon.svg
+          2.334 100%   10,22kB/s    0:00:00            2.334 100%   10,22kB/s    0:00:00 (xfr#38, to-chk=503/4780)
+con/fonts/flexslider-icon.ttf
+          1.892 100%    8,29kB/s    0:00:00            1.892 100%    8,29kB/s    0:00:00 (xfr#39, to-chk=502/4780)
+con/fonts/flexslider-icon.woff
+          1.268 100%    5,55kB/s    0:00:00            1.268 100%    5,55kB/s    0:00:00 (xfr#40, to-chk=501/4780)
+con/fonts/fontawesome-webfont.eot
+         32.768  19%  143,50kB/s    0:00:00          165.742 100%  719,37kB/s    0:00:00 (xfr#41, to-chk=500/4780)
+con/fonts/fontawesome-webfont.svg
+         32.768   7%  141,59kB/s    0:00:02          444.379 100%    1,86MB/s    0:00:00 (xfr#42, to-chk=499/4780)
+con/fonts/fontawesome-webfont.ttf
+         32.768  19%  139,74kB/s    0:00:00          165.548 100%  705,97kB/s    0:00:00 (xfr#43, to-chk=498/4780)
+con/fonts/fontawesome-webfont.woff
+         32.768  33%  139,74kB/s    0:00:00           98.024 100%  418,02kB/s    0:00:00 (xfr#44, to-chk=497/4780)
+con/fonts/fontawesome-webfont.woff2
+         32.768  42%  139,74kB/s    0:00:00           77.160 100%  327,62kB/s    0:00:00 (xfr#45, to-chk=496/4780)
+con/fonts/glyphicons-halflings-regular.eot
+         20.127 100%   85,46kB/s    0:00:00           20.127 100%   85,46kB/s    0:00:00 (xfr#46, to-chk=495/4780)
+con/fonts/glyphicons-halflings-regular.svg
+         32.768  30%  139,13kB/s    0:00:00          108.738 100%  459,69kB/s    0:00:00 (xfr#47, to-chk=494/4780)
+con/fonts/glyphicons-halflings-regular.ttf
+         32.768  72%  138,53kB/s    0:00:00           45.404 100%  191,12kB/s    0:00:00 (xfr#48, to-chk=493/4780)
+con/fonts/glyphicons-halflings-regular.woff
+         23.424 100%   98,60kB/s    0:00:00           23.424 100%   98,60kB/s    0:00:00 (xfr#49, to-chk=492/4780)
+con/fonts/glyphicons-halflings-regular.woff2
+         18.028 100%   75,89kB/s    0:00:00           18.028 100%   75,89kB/s    0:00:00 (xfr#50, to-chk=491/4780)
+con/fonts/ionicons.eot
+         32.768  27%  137,93kB/s    0:00:00          120.724 100%  505,99kB/s    0:00:00 (xfr#51, to-chk=490/4780)
+con/fonts/ionicons.svg
+         32.768   9%  137,34kB/s    0:00:02          333.834 100%    1,35MB/s    0:00:00 (xfr#52, to-chk=489/4780)
+con/fonts/ionicons.ttf
+         32.768  17%  136,17kB/s    0:00:01          188.508 100%  780,04kB/s    0:00:00 (xfr#53, to-chk=488/4780)
+con/fonts/ionicons.woff
+         32.768  48%  135,59kB/s    0:00:00           67.904 100%  280,99kB/s    0:00:00 (xfr#54, to-chk=487/4780)
+con/images/
+con/images/AjaxLoader.gif
+          1.517 100%    6,28kB/s    0:00:00            1.517 100%    6,28kB/s    0:00:00 (xfr#55, to-chk=486/4780)
+con/images/apple-touch-icon-114x114.png
+          3.883 100%   16,07kB/s    0:00:00            3.883 100%   16,07kB/s    0:00:00 (xfr#56, to-chk=485/4780)
+con/images/apple-touch-icon-72x72.png
+          3.540 100%   14,65kB/s    0:00:00            3.540 100%   14,65kB/s    0:00:00 (xfr#57, to-chk=484/4780)
+con/images/apple-touch-icon.png
+          3.351 100%   13,81kB/s    0:00:00            3.351 100%   13,81kB/s    0:00:00 (xfr#58, to-chk=483/4780)
+con/images/favicon.ico
+          1.150 100%    4,74kB/s    0:00:00            1.150 100%    4,74kB/s    0:00:00 (xfr#59, to-chk=482/4780)
+con/images/grabbing.png
+            116 100%    0,48kB/s    0:00:00              116 100%    0,48kB/s    0:00:00 (xfr#60, to-chk=481/4780)
+con/images/loading-animation.gif
+         20.164 100%   83,09kB/s    0:00:00           20.164 100%   83,09kB/s    0:00:00 (xfr#61, to-chk=480/4780)
+con/images/AMS/
+con/images/AMS/AMS_1920x1050_hi.png
+         32.768   1%  135,02kB/s    0:00:22        3.056.477 100%   10,92MB/s    0:00:00 (xfr#62, to-chk=478/4780)
+con/images/AMS/AMS_1920x1080.png
+         32.768   2%  119,40kB/s    0:00:09        1.187.554 100%    4,03MB/s    0:00:00 (xfr#63, to-chk=477/4780)
+con/images/AMS/AMS_1920x1080_hi.png
+         32.768   1%  113,88kB/s    0:00:26        3.056.473 100%    8,78MB/s    0:00:00 (xfr#64, to-chk=476/4780)
+con/images/AMS/AMS_1920x1080_low.png
+         32.768   2%   96,39kB/s    0:00:11        1.160.453 100%    3,27MB/s    0:00:00 (xfr#65, to-chk=475/4780)
+con/include/
+con/include/sendemail.php
+          2.294 100%    6,61kB/s    0:00:00            2.294 100%    6,61kB/s    0:00:00 (xfr#66, to-chk=474/4780)
+con/include/ajax/
+con/include/ajax/portfolio-item.html
+          1.998 100%    5,76kB/s    0:00:00            1.998 100%    5,76kB/s    0:00:00 (xfr#67, to-chk=471/4780)
+con/include/phpmailer/
+con/include/phpmailer/PHPMailerAutoload.php
+          1.689 100%    4,85kB/s    0:00:00            1.689 100%    4,85kB/s    0:00:00 (xfr#68, to-chk=470/4780)
+con/include/phpmailer/VERSION
+              7 100%    0,02kB/s    0:00:00                7 100%    0,02kB/s    0:00:00 (xfr#69, to-chk=469/4780)
+con/include/phpmailer/class.phpmailer.php
+         32.768  22%   94,12kB/s    0:00:01          146.762 100%  420,30kB/s    0:00:00 (xfr#70, to-chk=468/4780)
+con/include/phpmailer/class.phpmaileroauth.php
+          7.216 100%   20,67kB/s    0:00:00            7.216 100%   20,67kB/s    0:00:00 (xfr#71, to-chk=467/4780)
+con/include/phpmailer/class.phpmaileroauthgoogle.php
+          2.464 100%    7,06kB/s    0:00:00            2.464 100%    7,06kB/s    0:00:00 (xfr#72, to-chk=466/4780)
+con/include/phpmailer/class.pop3.php
+         11.006 100%   31,43kB/s    0:00:00           11.006 100%   31,43kB/s    0:00:00 (xfr#73, to-chk=465/4780)
+con/include/phpmailer/class.smtp.php
+         32.768  77%   93,57kB/s    0:00:00           42.054 100%  120,08kB/s    0:00:00 (xfr#74, to-chk=464/4780)
+con/include/phpmailer/get_oauth_token.php
+          5.036 100%   14,34kB/s    0:00:00            5.036 100%   14,34kB/s    0:00:00 (xfr#75, to-chk=463/4780)
+con/jquery/
+con/jquery/jquery-3.7.1.min.js
+         32.768  37%   93,29kB/s    0:00:00           87.533 100%  248,49kB/s    0:00:00 (xfr#76, to-chk=462/4780)
+con/js/
+con/js/_config.js
+            285 100%    0,81kB/s    0:00:00              285 100%    0,81kB/s    0:00:00 (xfr#77, to-chk=461/4780)
+con/js/bootstrap.js
+         32.768  47%   92,75kB/s    0:00:00           69.707 100%  197,31kB/s    0:00:00 (xfr#78, to-chk=460/4780)
+con/js/bootstrap.min.js
+         32.768  88%   92,75kB/s    0:00:00           37.045 100%  104,56kB/s    0:00:00 (xfr#79, to-chk=459/4780)
+con/js/gmaps.min.js
+         31.794 100%   89,74kB/s    0:00:00           31.794 100%   89,74kB/s    0:00:00 (xfr#80, to-chk=458/4780)
+con/js/jquery.min.js
+         32.768  33%   92,49kB/s    0:00:00           97.163 100%  273,45kB/s    0:00:00 (xfr#81, to-chk=457/4780)
+con/js/main.js
+         32.768  96%   92,22kB/s    0:00:00           34.128 100%   96,05kB/s    0:00:00 (xfr#82, to-chk=456/4780)
+con/js/modernizr.js
+         17.102 100%   47,99kB/s    0:00:00           17.102 100%   47,99kB/s    0:00:00 (xfr#83, to-chk=455/4780)
+con/js/plugins.js
+         32.768  11%   91,95kB/s    0:00:02          278.829 100%  777,98kB/s    0:00:00 (xfr#84, to-chk=454/4780)
+con/js/respond.min.js
+          4.596 100%   12,79kB/s    0:00:00            4.596 100%   12,79kB/s    0:00:00 (xfr#85, to-chk=453/4780)
+res/
+res/index.html
+          6.897 100%   19,19kB/s    0:00:00            6.897 100%   19,19kB/s    0:00:00 (xfr#86, to-chk=452/4780)
+res/jquery/
+res/jquery/jquery-3.7.1.min.js
+         32.768  37%   91,17kB/s    0:00:00           87.533 100%  243,54kB/s    0:00:00 (xfr#87, to-chk=449/4780)
+res/js/
+res/js/_config.js
+            281 100%    0,78kB/s    0:00:00              281 100%    0,78kB/s    0:00:00 (xfr#88, to-chk=448/4780)
+src/Parameters.php
+            700  12%    1,95kB/s    0:00:02            5.804 100%   16,15kB/s    0:00:00 (xfr#89, to-chk=443/4780)
+src/Controllers/ConciergeShipsController.php
+         10.289 100%   28,63kB/s    0:00:00           10.289 100%   28,63kB/s    0:00:00 (xfr#90, to-chk=437/4780)
+src/Controllers/DailyMenusVerticaisController.php
+          1.465  15%    4,08kB/s    0:00:01            9.303 100%   25,88kB/s    0:00:00 (xfr#91, to-chk=434/4780)
+[2025-09-22 16:19:59] --- Fim do deploy DEV ---
+[2025-09-22 16:30:30] --- Início do deploy DEV ---
+[2025-09-22 16:30:30] Deploy completo da pasta www/
+[2025-09-22 16:30:30] Remote Path -> /docker/projetos/mystic_river_concierge_ama-dev/www
+[2025-09-22 16:30:30] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-22 16:30:30] User -> aborba
+[2025-09-22 16:30:30] Server -> srvdockerlab
+sending incremental file list
+res/js/_config.js
+            284 100%    0,00kB/s    0:00:00              284 100%    0,00kB/s    0:00:00 (xfr#1, to-chk=448/4780)
+[2025-09-22 16:30:32] --- Fim do deploy DEV ---
+[2025-09-22 16:32:07] --- Início do deploy DEV ---
+[2025-09-22 16:32:07] Deploy completo da pasta www/
+[2025-09-22 16:32:07] Remote Path -> /docker/projetos/mystic_river_concierge_ama-dev/www
+[2025-09-22 16:32:07] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-22 16:32:07] User -> aborba
+[2025-09-22 16:32:07] Server -> srvdockerlab
+sending incremental file list
+res/index.html
+            700  10%    0,00kB/s    0:00:00            6.977 100%    5,99MB/s    0:00:00 (xfr#1, to-chk=452/4780)
+[2025-09-22 16:32:08] --- Fim do deploy DEV ---
+[2025-09-22 16:58:35] --- Início do deploy DEV ---
+[2025-09-22 16:58:35] Deploy completo da pasta www/
+[2025-09-22 16:58:35] Remote Path -> /docker/projetos/mystic_river_concierge_ama-dev/www
+[2025-09-22 16:58:35] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-22 16:58:35] User -> aborba
+[2025-09-22 16:58:35] Server -> srvdockerlab
+sending incremental file list
+res/.htaccess
+            178 100%    0,00kB/s    0:00:00              178 100%    0,00kB/s    0:00:00 (xfr#1, to-chk=453/4781)
+res/index.html
+            700  10%  683,59kB/s    0:00:00            6.977 100%    6,65MB/s    0:00:00 (xfr#2, to-chk=452/4781)
+[2025-09-22 16:58:36] --- Fim do deploy DEV ---
+[2025-09-22 16:59:27] --- Início do deploy DEV ---
+[2025-09-22 16:59:27] Deploy completo da pasta www/
+[2025-09-22 16:59:27] Remote Path -> /docker/projetos/mystic_river_concierge_ama-dev/www
+[2025-09-22 16:59:27] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-22 16:59:27] User -> aborba
+[2025-09-22 16:59:27] Server -> srvdockerlab
+sending incremental file list
+deleting res/.htaccess
+[2025-09-22 16:59:28] --- Fim do deploy DEV ---
+[2025-09-22 17:01:59] --- Início do deploy DEV ---
+[2025-09-22 17:01:59] Deploy completo da pasta www/
+[2025-09-22 17:01:59] Remote Path -> /docker/projetos/mystic_river_concierge_ama-dev/www
+[2025-09-22 17:01:59] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-22 17:01:59] User -> aborba
+[2025-09-22 17:01:59] Server -> srvdockerlab
+sending incremental file list
+res/index.html
+            700   9%    0,00kB/s    0:00:00            7.421 100%    6,41MB/s    0:00:00 (xfr#1, to-chk=452/4780)
+[2025-09-22 17:02:00] --- Fim do deploy DEV ---
+[2025-09-22 17:03:12] --- Início do deploy DEV ---
+[2025-09-22 17:03:12] Deploy completo da pasta www/
+[2025-09-22 17:03:12] Remote Path -> /docker/projetos/mystic_river_concierge_ama-dev/www
+[2025-09-22 17:03:12] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-22 17:03:12] User -> aborba
+[2025-09-22 17:03:12] Server -> srvdockerlab
+sending incremental file list
+deleting res/js/_config.js
+res/js/__config.js
+            284 100%    0,00kB/s    0:00:00              284 100%    0,00kB/s    0:00:00 (xfr#1, to-chk=448/4780)
+[2025-09-22 17:03:13] --- Fim do deploy DEV ---
+[2025-09-22 17:03:47] --- Início do deploy DEV ---
+[2025-09-22 17:03:47] Deploy completo da pasta www/
+[2025-09-22 17:03:47] Remote Path -> /docker/projetos/mystic_river_concierge_ama-dev/www
+[2025-09-22 17:03:47] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-22 17:03:47] User -> aborba
+[2025-09-22 17:03:47] Server -> srvdockerlab
+sending incremental file list
+deleting res/js/__config.js
+res/js/_config.js
+            284 100%    0,00kB/s    0:00:00              284 100%    0,00kB/s    0:00:00 (xfr#1, to-chk=448/4780)
+[2025-09-22 17:03:47] --- Fim do deploy DEV ---

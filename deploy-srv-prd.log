@@ -9032,3 +9032,13 @@ sending incremental file list
 src/Parameters.php
           1,401  24%    0.00kB/s    0:00:00            5,804 100%    4.20MB/s    0:00:00 (xfr#1, to-chk=441/4774)
 [2025-09-20 11:18:20] --- Fim do deploy DEV ---
+[2025-09-20 11:25:44] --- Início do deploy PRD ---
+[2025-09-20 11:25:44] Deploy completo da pasta www/
+[2025-09-20 11:25:44] Remote Path -> /docker/projetos/mystic_river_concierge_ama-prd/www
+[2025-09-20 11:25:44] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-20 11:25:44] User -> aborba
+[2025-09-20 11:25:44] Server -> 10.178.103.20
+sending incremental file list
+res/index.html
+            700  10%    0.00kB/s    0:00:00            6,897 100%    5.91MB/s    0:00:00 (xfr#1, to-chk=448/4774)
+[2025-09-20 11:25:45] --- Fim do deploy DEV ---
