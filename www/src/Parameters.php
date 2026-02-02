@@ -10,7 +10,7 @@ $protocol = 'http'.(!empty($_SERVER['HTTPS']) ? 's' : '');
 @define('operCode', 'AMA');
 @define('operName', 'AmaWaterways');
 
-@define('SHOW_CONCIERGE', false); // OnlyMenu Restaurant = false, Menu Concierge + Menu Restaurant = true
+@define('SHOW_CONCIERGE', true); // OnlyMenu Restaurant = false, Menu Concierge + Menu Restaurant = true
 @define('LANGUAGE_DEFAULT', 'en');
 
 #geral

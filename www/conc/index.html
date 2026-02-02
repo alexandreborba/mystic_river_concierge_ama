@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+  <head>
+    <title>Concierge</title>
+
+    <!-- Meta Data -->
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <!-- NEW: impedir zoom e ocupar o ecrã -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/ionicons.min.css" type="text/css">
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flexslider.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/vegas.min.css" type="text/css">
+    <link rel="stylesheet" href="css/photoswipe/photoswipe.css">
+    <link rel="stylesheet" href="css/photoswipe/default-skin/default-skin.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+
+    <link rel="stylesheet" href="css/custom.css">
+    <style>
+      .btns {
+        background: #F9F9F9;
+        border-radius: 100px;
+        padding: 10px 30px;
+        color: #000;
+        text-decoration: none;
+        font-size: 1.45em;
+        margin: 10px 0 0 5px;
+        font-size:20px;
+        cursor: pointer;
+        border:1px solid #BD965D;
+      }
+      .active {
+        background: #F9F9F9;
+        color: #BD965D;
+      }
+      .btns:hover {
+        background: #F9F9F9;
+        color: #BD965D;
+      }
+      .header-top {
+        background: #fff;
+        height: 50px;
+        width: 100%;
+      }
+
+      /* NEW: garantir full-viewport e evitar zoom automático do agente */
+      html, body {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        touch-action: manipulation;
+        -ms-content-zooming: none;           /* IE/Edge antigo */
+        -ms-touch-action: manipulation;
+        -webkit-text-size-adjust: 100%;      /* evitar upscale em iOS/TV */
+        text-size-adjust: 100%;
+        background: #000; /* opcional */
+      }
+      .main-container, .global-overlay, .overlay, .overlay-wrapper, .overlay-inner {
+        width:100%;
+        height:100%;
+      }
+    </style>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+    <!--[if lt IE 11]>
+      <link rel="stylesheet" type="text/css" href="css/ie.css">
+    <![endif]-->
+
+    <!-- Fonts -->
+    <link href='css/fonts.css' rel='stylesheet' type='text/css'>
+
+    <!-- JS -->
+    <script type="text/javascript" src="js/modernizr.js"></script>
+
+    <!-- Faviconss -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  </head>
+  <body>
+
+    <div id="preloader">
+      <div id="loading-animation"></div>
+    </div>
+
+    <div class="main-container">
+      <div class="header-top">
+        <!-- Main Header -->
+        <header class="main-header" style="">
+          <div class="header-block">
+            <!-- Header Logo -->
+            <div class="logo-block" style="padding-top: 1%;">
+              <img name='shiplogo' alt="" class="logo-light" style="max-width: 130%; max-height: 130%; padding-top: 2%;">
+            </div>
+          </div>
+
+          <!-- Header Nav -->
+          <nav class="header-nav" >
+            <ul class="nav" style="padding-top: 2%;" >
+              <li></li>
+              <li><p class='btns' name="optDailyMenu">Daily Menu</p></li>
+              <li><p class='btns' name="optDailyProgram">Daily Program</p></li>
+              <li><p class='btns' name="optSpa">Spa</p></li>
+              <li><p class='btns' name="optShop">Shop</p></li>
+            </ul>
+          </nav>
+
+        </header>
+      </div>
+      <!-- Global Overlay -->
+      <div class="global-overlay">
+        <div class="overlay">
+          <div class="overlay-wrapper">
+            <div class="overlay-inner background-white">
+              <div name="conteudo" style="text-align:center"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- JS -->
+    <!--
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    -->
+    <script src="jquery/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <!-- script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key="></!-->
+    <script type="text/javascript" src="js/gmaps.min.js"></script>
+
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/_config.js?v=<?= filemtime(__DIR__ . '/js/_config.js') ?>"></script>
+
+    <!-- NEW: fullscreen + bloqueio de zoom -->
+    <script>
+        // Configurações da aplicação (via _config.js)
+        const { shipCode, server, container, tokenAPI } = window.APP_CONFIG;
+
+        // alert("shipCode: " + shipCode + "\nserver: " + server + "\ncontainer: " + container);
+       
+
+    </script>
+    <script>
+      // Tentar entrar em fullscreen (alguns browsers só permitem por gesto do utilizador)
+      function enterFullscreen() {
+        const el = document.documentElement;
+        if (document.fullscreenElement) return;
+        if (el.requestFullscreen) el.requestFullscreen().catch(() => {});
+        else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+        else if (el.msRequestFullscreen) el.msRequestFullscreen();
+      }
+
+      // Chamar no load (pode falhar silenciosamente)
+      document.addEventListener('DOMContentLoaded', () => {
+        // segundo tick para garantir que o DOM e estilos aplicaram
+        setTimeout(enterFullscreen, 0);
+      });
+
+      // Gesto de utilizador: primeiro clique/touch força fullscreen
+      let triedOnce = false;
+      function tryFSOnce() {
+        if (!triedOnce) {
+          triedOnce = true;
+          enterFullscreen();
+          document.removeEventListener('click', tryFSOnce);
+          document.removeEventListener('touchstart', tryFSOnce);
+        }
+      }
+      document.addEventListener('click', tryFSOnce, { passive: true });
+      document.addEventListener('touchstart', tryFSOnce, { passive: true });
+
+      // Bloquear zoom por teclado (Ctrl/Cmd + + / - / 0)
+      document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && ['+', '=', '-', '_', '0'].includes(e.key)) {
+          e.preventDefault();
+        }
+      });
+
+      // Bloquear zoom por Ctrl + scroll
+      document.addEventListener('wheel', function(e) {
+        if (e.ctrlKey) e.preventDefault();
+      }, { passive: false });
+
+      // Bloquear pinch-zoom em iOS/webkit antigos
+      document.addEventListener('gesturestart', function(e) {
+        e.preventDefault();
+      });
+    </script>
+
+    <script>
+    
+      $(document).ready(function () {
+
+        // alert('teste');
+
+        // Timer de inatividade (em milissegundos)
+        const INACTIVITY_TIMEOUT = 60000; // 1 minuto
+        let inactivityTimer;
+
+        function resetInactivityTimer() {
+          clearTimeout(inactivityTimer);
+          inactivityTimer = setTimeout(function () {
+            location.reload(); // faz o refresh da página
+          }, INACTIVITY_TIMEOUT);
+        }
+
+        resetInactivityTimer();
+
+        // Reset do timer em qualquer interação do utilizador
+        /*
+        //getMenuPosition();
+        function getMenuPosition(){
+          var pathAPI = '/'+container+'/apis/ships/getMenuPosition/' + shipCode;
+          $.ajax({
+            url: server + pathAPI,
+            type: 'GET',
+            dataType: 'json',
+            success: function(res){
+              var position = res.position;
+              if (position == "U"){
+                //$(".header-nav").css("float", "left");
+              } else {
+                //$(".header-nav").css("float", "right");
+              }
+            },
+            error: function () {
+              // Handle error if needed
+            }
+          });
+        }
+        // getMenuItems();
+        function getMenuItems(){
+          var pathAPI = '/'+container+'/apis/ships/getMenuItems/' + shipCode;
+          $.ajax({
+            url: server + pathAPI,
+            type: 'GET',
+            dataType: 'json',
+            success: function(res){
+              var items = res.items;
+              //console.log(items);
+              //$(".header-nav").css("float", "left");
+              //$(".header-nav").css("float", "right");
+            },
+            error: function () {
+              // Handle error if needed
+            }
+          });
+        }
+        */
+
+        getLogoFile();
+
+        function getLogoFile(){
+          // alert('logo');
+          //const tokenAPI = "eyJhbGciOiAiSFMyNTYiLCAidHlwIiA6ICJKV1QifQ.eyJzdWIiOiAiNzVmODY1YTFkN2Y2MDZmYTkyOWE2M2Q1NjY0YmE3MmMiLCAibmFtZSI6ICJNeXN0aWNJbnZlc3                                                                                QiLCAiaWF0IiA6IDE3NDU0NDM4NDN9.rU0X1MrLwhP5wsbGVgy8eQyrZsIRzp_2quM5ezIWBXE";
+          // var pathAPI = '/'+container+'/apis/ships/getLogoFile/' + shipCode;
+          //var pathFile = '/'+container+'/media/logos/';
+          var pathFile = '/'+container+'/nocontent/logo/';
+
+          var file = shipCode +'.png';
+          var fullPath = server+pathFile+file;
+          
+          // alert("fullPath Logo: " + fullPath); 
+
+          $("img[name='shiplogo']").attr("src", fullPath);
+
+          /*
+          $.ajax({
+            url: server + pathAPI,
+            type: 'GET',
+            dataType: 'json',
+            headers: {
+              'Authorization': 'Bearer ' + tokenAPI
+            },
+            success: function(res){
+              var file = res.file;
+              var fullPath = server+pathFile+file;
+              $("img[name='shiplogo']").attr("src", fullPath);
+            },
+            error: function () {
+              $("#menu_image").attr("alt", "Error");
+            }
+          });
+          */
+        }
+
+        function getHomeFile(){
+          // alert("home");
+          var pathAPI = '/'+container+'/apis/ships/getFile/' + shipCode;
+          var pathFile = '/'+container+'/media/ships/';
+
+          // alert(pathAPI + "\n" + pathFile);
+
+          $.ajax({
+            url: server + pathAPI,
+            type: 'GET',
+            dataType: 'json',
+            success: function(res){
+              //alert("success home");
+              var file = res.file;
+              var fullPath = server+pathFile+file;
+              
+              //alert("fullPath Home: " + fullPath);
+
+              var timestamp = new Date().getTime();
+              $('div[name="conteudo"]').hide();
+              $('div[name="conteudo"]').html('<img name="home" style="margin-top:1%;padding-top:4%;width:92%;max-width:92%" src="'+fullPath+'?v=' + timestamp                                                                                 + '">');
+              $('div[name="conteudo"]').show();
+            },
+            error: function () {
+              //alert("error home");
+              //alert(pathAPI + "\n" + pathFile);
+              var pathFile = '/'+container+'/nocontent/concierge/';
+              var file = 'no_content.png';
+              var fullPath = server+pathFile+file;
+              // alert(fullPath);
+              var timestamp = new Date().getTime();
+              $('div[name="conteudo"]').hide();
+              $('div[name="conteudo"]').html('<img name="home" style="margin-top:1%;padding-top:4%;width:92%;max-width:92%" src="'+fullPath+'?v=' + timestamp                                                                                 + '">');
+              $('div[name="conteudo"]').show();
+            }
+          });
+        }
+
+        $("img[name='shiplogo']").click(function(e){
+          e.preventDefault();
+          resetInactivityTimer();
+          getHomeFile();
+        });
+
+        $("p[name='optDailyMenu']").click(function(e){
+          e.preventDefault();
+          resetInactivityTimer();
+          var pathAPI = '/'+container+'/apis/dailyMenus/getFile/' + shipCode;
+          var pathFile = '/'+container+'/media/dMenus/';
+
+          //alert(pathAPI);
+
+          // remove active class from all other buttons by name start by opt
+          $("p[name^='opt']").not(this).removeClass('active');
+          $(this).addClass('active');
+
+          $.ajax({
+            url: server + pathAPI,
+            type: 'GET',
+            dataType: 'json',
+            success: function(res){
+              var file = res.file;
+              var fullPath = server+pathFile+file;
+              
+              // alert("fullPath Daily Menu: " + fullPath);
+
+              var timestamp = new Date().getTime();
+              $('div[name="conteudo"]').hide();
+              $('div[name="conteudo"]').html('<img name="dailyMenu" style="margin-top:1%;padding-top:4%;width:92%;max-width:92%" src="'+fullPath+'?v=' + timestamp + '">');
+              $('div[name="conteudo"]').show();
+            },
+            error: function () {
+              var pathFile = '/'+container+'/nocontent/concierge/';
+              var file = 'no_content.png';
+              var fullPath = server+pathFile+file;
+              // alert("fullPath Daily Menu NO CONTENT: " + fullPath);
+              var timestamp = new Date().getTime();
+              $('div[name="conteudo"]').hide();
+              $('div[name="conteudo"]').html('<img name="dailyMenu" style="margin-top:1%;padding-top:4%;width:92%;max-width:92%" src="'+fullPath+'?v=' + timestamp + '">');
+              $('div[name="conteudo"]').show();
+            }
+          });
+        });
+
+        $("p[name='optDailyProgram']").click(function(e){
+          e.preventDefault();
+          resetInactivityTimer();
+          var pathAPI = '/'+container+'/apis/dailyPrograms/getFile/' + shipCode;
+          var pathFile = '/'+container+'/media/dPrograms/';
+
+          // remove active class from all other buttons by name start by opt
+          $("p[name^='opt']").not(this).removeClass('active');
+          $(this).addClass('active');
+
+          $.ajax({
+            url: server + pathAPI,
+            type: 'GET',
+            dataType: 'json',
+            success: function(res){
+              var file = res.file;
+              var fullPath = server+pathFile+file;
+              // alert("fullPath Daily Program: " + fullPath);
+              var timestamp = new Date().getTime();
+              $('div[name="conteudo"]').hide();
+              $('div[name="conteudo"]').html('<img name="dailyProgram" style="margin-top:1%;padding-top:4%;width:92%;max-width:92%" src="'+fullPath+'?v=' + timestamp + '">');
+              $('div[name="conteudo"]').show();
+            },
+            error: function () {
+              var pathFile = '/'+container+'/nocontent/concierge/';
+              var file = 'no_content.png';
+              var fullPath = server+pathFile+file;
+              // alert("fullPath Daily Program NO CONTENT: " + fullPath);
+              var timestamp = new Date().getTime();
+              $('div[name="conteudo"]').hide();
+              $('div[name="conteudo"]').html('<img name="dailyProgram" style="margin-top:1%;padding-top:4%;width:92%;max-width:92%" src="'+fullPath+'?v=' + timestamp + '">');
+              $('div[name="conteudo"]').show();
+            }
+          });
+        });
+
+        $("p[name='optShop']").click(function(e){
+          e.preventDefault();
+          resetInactivityTimer();
+          var pathAPI = '/'+container+'/apis/shops/getFile/' + shipCode;
+          var pathFile = '/'+container+'/media/shops/';
+
+        // remove active class from all other buttons by name start by opt
+          $("p[name^='opt']").not(this).removeClass('active');
+          $(this).addClass('active');
+
+          $.ajax({
+            url: server + pathAPI,
+            type: 'GET',
+            dataType: 'json',
+            success: function(res){
+              var file = res.file;
+              var fullPath = server+pathFile+file;
+
+              // alert("fullPath Shop CONTENT: " + fullPath);
+
+              var timestamp = new Date().getTime();
+              $('div[name="conteudo"]').hide();
+              $('div[name="conteudo"]').html('<img name="shops" style="margin-top:1%;padding-top:4%;width:92%;max-width:92%" src="'+fullPath+'?v=' + timestamp + '">');
+              $('div[name="conteudo"]').show();
+            },
+            error: function () {
+              var pathFile = '/'+container+'/nocontent/concierge/';
+              var file = 'no_content.png';
+              var fullPath = server+pathFile+file;
+              
+              // alert("fullPath Shop NO CONTENT: " + fullPath);
+
+              var timestamp = new Date().getTime();
+              $('div[name="conteudo"]').hide();
+              $('div[name="conteudo"]').html('<img name="shops" style="margin-top:1%;padding-top:4%;width:92%;max-width:92%" src="'+fullPath+'?v=' + timestamp + '">');
+              $('div[name="conteudo"]').show();
+            }
+          });
+        });
+
+        $("p[name='optSpa']").click(function(e){
+          e.preventDefault();
+          resetInactivityTimer();
+          var pathAPI = '/'+container+'/apis/spas/getFile/' + shipCode;
+          var pathFile = '/'+container+'/media/spas/';
+
+          // remove active class from all other buttons by name start by opt
+          $("p[name^='opt']").not(this).removeClass('active');
+          $(this).addClass('active');
+
+          $.ajax({
+            url: server + pathAPI,
+            type: 'GET',
+            dataType: 'json',
+            success: function(res){
+              var file = res.file;
+              var fullPath = server+pathFile+file;
+              var timestamp = new Date().getTime();
+              $('div[name="conteudo"]').hide();
+              $('div[name="conteudo"]').html('<img name="spas" style="margin-top:1%;padding-top:4%;width:92%;max-width:92%" src="'+fullPath+'?v=' + timestamp                                                                                 + '">');
+              $('div[name="conteudo"]').show();
+            },
+            error: function () {
+              var pathFile = '/'+container+'/nocontent/concierge/';
+              var file = 'no_content.png';
+              var fullPath = server+pathFile+file;
+              var timestamp = new Date().getTime();
+              $('div[name="conteudo"]').hide();
+              $('div[name="conteudo"]').html('<img name="spas" style="margin-top:1%;padding-top:4%;width:92%;max-width:92%" src="'+fullPath+'?v=' + timestamp                                                                                 + '">');
+              $('div[name="conteudo"]').show();
+            }
+          });
+        });
+
+        $("img[name='shiplogo']").click();
+        //$("p[name='date']").html("");
+
+      });
+    </script>
+
+  </body>
+</html>aborba@DAAMASRV001:/docker/projetos/mystic_river_concierge_ama-prd/www/con $ nano index.html
+aborba@DAAMASRV001:/docker/projetos/mystic_river_concierge_ama-prd/www/con $ nano index.html
+aborba@DAAMASRV001:/docker/projetos/mystic_river_concierge_ama-prd/www/con $
+aborba@DAAMASRV001:/docker/projetos/mystic_river_concierge_ama-prd/www/con $ nano index.html
+aborba@DAAMASRV001:/docker/projetos/mystic_river_concierge_ama-prd/www/con $ nano index.html
+  GNU nano 7.2                                                                                                      index.html
+              var pathFile = '/'+container+'/nocontent/concierge/';
+              var file = 'no_content.png';
+              var fullPath = server+pathFile+file;
+              // alert(fullPath);
+              var timestamp = new Date().getTime();
+              $('div[name="conteudo"]').hide();
+              $('div[name="conteudo"]').html('<img name="shops" style="margin-top:1%;padding-top:4%;width:92%;max-width:92%" src="'+fullPath+'?v=' + timestamp + '">');
+              $('div[name="conteudo"]').show();
+            }
+          });
+        });
+
+        $("p[name='optSpa']").click(function(e){
+          e.preventDefault();
+          resetInactivityTimer();
+          var pathAPI = '/'+container+'/apis/spas/getFile/' + shipCode;
+          var pathFile = '/'+container+'/media/spas/';
+
+          // remove active class from all other buttons by name start by opt
+          $("p[name^='opt']").not(this).removeClass('active');
+          $(this).addClass('active');
+
+          $.ajax({
+            url: server + pathAPI,
+            type: 'GET',
+            dataType: 'json',
+            success: function(res){
+              var file = res.file;
+              var fullPath = server+pathFile+file;
+              var timestamp = new Date().getTime();
+              $('div[name="conteudo"]').hide();
+              $('div[name="conteudo"]').html('<img name="spas" style="margin-top:1%;padding-top:4%;width:92%;max-width:92%" src="'+fullPath+'?v=' + timestamp + '">');
+              $('div[name="conteudo"]').show();
+            },
+            error: function () {
+              var pathFile = '/'+container+'/nocontent/concierge/';
+              var file = 'no_content.png';
+              var fullPath = server+pathFile+file;
+              var timestamp = new Date().getTime();
+              $('div[name="conteudo"]').hide();
+              $('div[name="conteudo"]').html('<img name="spas" style="margin-top:1%;padding-top:4%;width:92%;max-width:92%" src="'+fullPath+'?v=' + timestamp + '">');
+            }
+          });
+        });
+        $('div[name="conteudo"]').show();
+
+        $("img[name='shiplogo']").click();
+        //$("p[name='date']").html("");
+
+      });
+    </script>
+
+  </body>
+</html>

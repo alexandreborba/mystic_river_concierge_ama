@@ -2,8 +2,8 @@
 
 clear
 
-SERVER="10.178.103.20" # amavida
-# SERVER="10.160.3.1"
+# SERVER="10.178.103.20" # amavida
+SERVER="10.178.96.11"
 PROJECTFOLDER_LOCAL="mystic_river_concierge_ama-local"
 PROJECTFOLDER_REMOTE="mystic_river_concierge_ama-prd"
 
@@ -98,7 +98,7 @@ else
       --no-perms --no-owner --no-group \
       --chown=aborba:aborba \
       --chmod=Dug=rwx,Do=rx,Fu=rw,Fo=r \
-      --rsync-path="sudo -n rsync" \
+      --rsync-path="sudo -n /usr/bin/rsync" \
       --exclude '.DS_Store' \
       --exclude '.env' \
       --exclude '.custom.ini' \
@@ -128,7 +128,7 @@ else
       --no-perms --no-owner --no-group \
       --chown=aborba:aborba \
       --chmod=Dug=rwx,Do=rx,Fu=rw,Fo=r \
-      --rsync-path="sudo -n rsync" \
+      --rsync-path="sudo -n /usr/bin/rsync" \
       --exclude '.DS_Store' \
       --exclude '.env' \
       --exclude '.custom.ini' \
@@ -159,5 +159,5 @@ TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
 echo "[$TIMESTAMP] --- Fim do deploy DEV ---" >> "$LOG_FILE"
 
 echo
-echo "Deploy Ambiente PRD[ 10.177.160.20 ] concluído com sucesso!"
+echo "Deploy Ambiente PRD[ $SERVER ] concluído com sucesso!"
 echo

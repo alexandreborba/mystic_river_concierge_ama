@@ -9396,3 +9396,33 @@ sending incremental file list
 res/index.html
           7.517 100%    0,00kB/s    0:00:00            7.517 100%    0,00kB/s    0:00:00 (xfr#1, to-chk=452/4780)
 [2025-09-22 17:36:01] --- Fim do deploy DEV ---
+[2025-09-22 17:39:10] --- Início do deploy DEV ---
+[2025-09-22 17:39:10] Deploy completo da pasta www/
+[2025-09-22 17:39:10] Remote Path -> /docker/projetos/mystic_river_concierge_ama-dev/www
+[2025-09-22 17:39:10] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-22 17:39:10] User -> aborba
+[2025-09-22 17:39:10] Server -> srvdockerlab
+sending incremental file list
+res/index.html
+          6.807 100%    0,00kB/s    0:00:00            6.807 100%    0,00kB/s    0:00:00 (xfr#1, to-chk=452/4780)
+[2025-09-22 17:39:11] --- Fim do deploy DEV ---
+[2025-09-22 17:40:45] --- Início do deploy DEV ---
+[2025-09-22 17:40:45] Deploy completo da pasta www/
+[2025-09-22 17:40:45] Remote Path -> /docker/projetos/mystic_river_concierge_ama-dev/www
+[2025-09-22 17:40:45] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-22 17:40:45] User -> aborba
+[2025-09-22 17:40:45] Server -> srvdockerlab
+sending incremental file list
+res/index.html
+          2.530  34%    0,00kB/s    0:00:00            7.237 100%    4,49MB/s    0:00:00 (xfr#1, to-chk=452/4780)
+[2025-09-22 17:40:46] --- Fim do deploy DEV ---
+[2025-09-22 17:41:38] --- Início do deploy DEV ---
+[2025-09-22 17:41:38] Deploy completo da pasta www/
+[2025-09-22 17:41:38] Remote Path -> /docker/projetos/mystic_river_concierge_ama-dev/www
+[2025-09-22 17:41:38] Local Path -> /Users/alexandreaborba/docker/projetos/mystic_river_concierge_ama-local/www/
+[2025-09-22 17:41:38] User -> aborba
+[2025-09-22 17:41:38] Server -> srvdockerlab
+sending incremental file list
+res/index.html
+            700   9%    0,00kB/s    0:00:00            7.326 100%    6,32MB/s    0:00:00 (xfr#1, to-chk=452/4780)
+[2025-09-22 17:41:38] --- Fim do deploy DEV ---

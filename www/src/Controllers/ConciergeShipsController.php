@@ -210,6 +210,29 @@ class ConciergeShipsController
         echo json_encode(["items" => $items]);
     }
 
+        /**
+     * Fetch a Image File by Ship
+     */
+    public function getFile($shipCode, $headers)
+    {
+        $shipStatus = 1;
+        #$this->validateToken($headers);
+        $ship = (new ConciergeShips())->find("shipCode=:sCode AND shipStatus=:st AND deleted_at IS NULL","sCode={$shipCode}&st={$shipStatus}")->fetch();
+        if (!$ship) {
+            http_response_code(404);
+            echo json_encode(["error" => "Ship Image File Not found to {$shipCode}"]);
+            return;
+        }
+        $result = [];
+
+        $result['file'] = $ship->shipFileImage;
+        
+        
+        http_response_code(200);
+        echo json_encode($result);
+
+    } // end getLogoFile function
+
     /**
      * Fetch a Image File by Ship
      */
@@ -217,7 +240,7 @@ class ConciergeShipsController
     {
 
         #$this->validateToken($headers);
-        $ship = (new ConciergeShips())->find("shipCode=:sCode AND ConciergeShipstatus=:st AND deleted_at IS NULL","sCode={$shipCode}&st=1")->fetch();
+        $ship = (new ConciergeShips())->find("shipCode=:sCode AND shipStatus=:st AND deleted_at IS NULL","sCode={$shipCode}&st=1")->fetch();
         if (!$ship) {
             http_response_code(404);
             echo json_encode(["error" => "Ship Image File Not found"]);
