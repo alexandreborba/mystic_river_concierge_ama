@@ -1,2 +1,2 @@
-# mystic_river_concierge_ama
-Douro Splendour : Concierge e Menu Restaurant
+# mystic_river_concierge_sgab
+Concierge e Menu Restaurant

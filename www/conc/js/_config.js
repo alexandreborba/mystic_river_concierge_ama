@@ -9,7 +9,7 @@
   const container = pathParts.length > 0 ? pathParts[0] : 'mrc';
 
   window.APP_CONFIG = {
-    shipCode:  'AMA',
+    shipCode:  'SGAB',
     server:    origin,
     container: container
   };

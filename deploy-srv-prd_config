@@ -1,0 +1,24 @@
+#!/bin/bash
+# ==============================================================================
+# deploy-srv-prd_config
+#
+# Configuração específica por servidor/projeto.
+# O deploy-srv-prd.sh faz "source" deste ficheiro.
+# ==============================================================================
+
+# IP/DNS do servidor remoto
+SERVER="10.179.3.34"
+
+SHIPNAME="SAO GABRIEL"
+
+# Declara o SHIPCODE com base no SHIPNAME
+SHIPCODE="SGAB"
+
+# Pasta do projeto local (dentro de /Users/<user>/docker/projetos/)
+PROJECTFOLDER_LOCAL="mystic_river_concierge_${SHIPCODE,,}-local"
+
+# Pasta do projeto remoto (dentro de /docker/projetos/)
+PROJECTFOLDER_REMOTE="mystic_river_concierge_${SHIPCODE,,}-prd"
+
+# Grupo do Apache no host (normalmente www-data em Ubuntu/Debian)
+REMOTE_OWNER_GROUP="www-data"

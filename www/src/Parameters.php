@@ -5,10 +5,10 @@ $protocol = 'http'.(!empty($_SERVER['HTTPS']) ? 's' : '');
 @define('PROTOCOL', $protocol.'://');
 
 #ship config
-@define('shipCode', 'AMA');
-@define('shipName', 'Amavida');
-@define('operCode', 'AMA');
-@define('operName', 'AmaWaterways');
+@define('shipCode', 'SGAB');
+@define('shipName', 'São Gabriel');
+@define('operCode', null);
+@define('operName', null);
 
 @define('SHOW_CONCIERGE', true); // OnlyMenu Restaurant = false, Menu Concierge + Menu Restaurant = true
 @define('LANGUAGE_DEFAULT', 'en');

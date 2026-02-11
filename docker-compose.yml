@@ -1,6 +1,6 @@
 # version: '3.8'
 services:
-  mystic_river_concierge_ama: # alterar aqui
+  mystic_river_concierge: # alterar aqui
 
     environment:
       PROJECT_NAME: ${PROJECT_NAME} 

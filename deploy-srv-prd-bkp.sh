@@ -217,9 +217,18 @@ run_rsync_full_www() {
     --no-perms --no-owner --no-group \
     --chmod=Du=rwx,Dg=rwx,Do=rx,Fu=rw,Fg=rw,Fo=r \
     --exclude '.DS_Store' \
+    --exclude '.env' \
+    --exclude '.custom.ini' \
+    --exclude 'entrypoint.sh' \
+    --exclude 'Dockerfile' \
+    --exclude 'docker-composer.yml' \
+    --exclude '.gitignore' \
     --exclude '.git/' \
     --exclude '.github/' \
     --exclude 'deploy-srv*' \
+    --exclude 'deploy-srv-dev.sh' \
+    --exclude 'deploy-srv-qua.sh' \
+    --exclude 'deploy-srv-prd.sh' \
     --exclude 'composer.json' \
     --exclude 'composer.lock' \
     --exclude 'media/**' \
